@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
+import { ToastDemo } from "@/components/shared/ToastDemo";
 import { Metadata } from "next";
 
 type Props = {
@@ -26,6 +27,7 @@ export default async function HomePage({ params }: Props) {
       <Button asChild>
         <Link href={`/${locale}/users`}>{t("goToUsers")}</Link>
       </Button>
+      <ToastDemo />
     </div>
   );
 }
