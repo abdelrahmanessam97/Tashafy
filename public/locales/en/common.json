@@ -1,4 +1,1 @@
-{
-  "hello": "Hello",
-  "welcome": "Welcome"
-}
+{ "hello": "Hello", "welcome": "Welcome", "users": "Users", "backToHome": "Back to home", "goToUsers": "Go to users" }

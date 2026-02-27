@@ -1,13 +1,9 @@
 import type { NextConfig } from "next";
-/** @type {import('next-i18next').UserConfig} */
 
+// App Router: locale config lives in lib/i18n-config.ts (middleware + [locale] use it).
 const nextConfig: NextConfig = {
-  i18n: {
-    defaultLocale: "en",
-    locales: ["en", "ar"],
-  },
   images: {
-      // domains: ["images.unsplash.com", "images.pexels.com"],
+    // domains: ["images.unsplash.com", "images.pexels.com"],
   },
 };
 
