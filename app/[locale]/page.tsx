@@ -2,9 +2,15 @@ import Link from "next/link";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { Button } from "@/components/ui/button";
 import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ locale: string }>;
+};
+
+export const metadata: Metadata = {
+  title: "Tashafy - Home",
+  description: "Home page of Tashafy",
 };
 
 export default async function HomePage({ params }: Props) {
