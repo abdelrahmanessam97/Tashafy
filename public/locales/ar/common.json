@@ -36,5 +36,17 @@
   "footer.email": "info@tashafy.com",
   "footer.facebook": "فيسبوك",
   "footer.x": "اكس",
-  "footer.instagram": "انستجرام"
+  "footer.instagram": "انستجرام",
+  "services.title": "خدماتنا",
+  "services.titleHighlight": "الرئيسية",
+  "services.subtitle": "ثلاثة ركائز شاملة للرعاية الصحية والعافية",
+  "services.learnMore": "تعرف على المزيد",
+  "services.rehabilitation.title": "التأهيل",
+  "services.rehabilitation.description": "استفد من خدمة الكونسيرج الطبي الشاملة التي تشمل حجز المستشفيات، الاستقبال من المطار، والرعاية المتكاملة.",
+  "services.med.title": "تشافي ميد",
+  "services.med.description": "استفد من خدمة الكونسيرج الطبي الشاملة التي تشمل حجز المستشفيات، الاستقبال من المطار، والرعاية المتكاملة.",
+  "services.wellness.title": "العافية",
+  "services.wellness.description": "اكتشف برامج واستجمام مصممة لعافيتك، في بيئات هادئة بدعم من خبراء.",
+  "services.heal.title": "هيل",
+  "services.heal.description": "دعم تأهيل وتعافي شخصي لمساعدتك على الشفاء واستعادة أفضل جودة حياة."
 }

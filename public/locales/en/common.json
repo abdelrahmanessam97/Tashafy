@@ -36,5 +36,17 @@
   "footer.email": "info@tashafy.com",
   "footer.facebook": "Facebook",
   "footer.x": "X",
-  "footer.instagram": "Instagram"
+  "footer.instagram": "Instagram",
+  "services.title": "Our Main",
+  "services.titleHighlight": "Services",
+  "services.subtitle": "Three comprehensive pillars for health and wellness",
+  "services.learnMore": "Learn more",
+  "services.rehabilitation.title": "Rehabilitation",
+  "services.rehabilitation.description": "Benefit from a comprehensive medical concierge service that includes hospital booking, airport reception, and integrated care.",
+  "services.med.title": "Tashafy Med",
+  "services.med.description": "Benefit from a comprehensive medical concierge service that includes hospital booking, airport reception, and integrated care.",
+  "services.wellness.title": "Wellness",
+  "services.wellness.description": "Discover programs and retreats designed for your wellbeing, in serene environments supported by experts.",
+  "services.heal.title": "Heal",
+  "services.heal.description": "Personalized rehabilitation and recovery support to help you heal and regain your best quality of life."
 }
