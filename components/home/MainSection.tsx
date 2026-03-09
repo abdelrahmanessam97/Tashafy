@@ -33,7 +33,7 @@ const MainSection = ({ locale, labels, motto, heading, searchPlaceholder }: Main
           <div className="flex flex-1 flex-col items-center justify-center text-center px-4 py-16">
             <p className="text-white/95 text-lg md:text-xl font-medium mb-3">{motto}</p>
             <div className="my-4">
-              <Image src="/vector.svg" className="w-full h-full" alt="Red Chevron" width={90} height={80} loading="lazy" />
+              <Image src="/Vector.svg" className="w-full h-full" alt="Red Chevron" width={90} height={80} loading="lazy" />
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-white leading-tight mb-8 md:mb-10">{heading}</h3>
             <div className="w-full max-w-2xl relative">
