@@ -12,7 +12,7 @@ import { NAV_ITEMS } from "@/data/global";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenuDrawer } from "./MobileMenuDrawer";
 
-export function Navbar({ locale, labels, searchPlaceholder }: NavbarProps) {
+export function Navbar({ locale, labels, searchPlaceholder, loadingLabel }: NavbarProps) {
   const pathname = usePathname();
   const localePrefix = `/${locale}`;
   const isRtl = locale === "ar";
@@ -81,7 +81,7 @@ export function Navbar({ locale, labels, searchPlaceholder }: NavbarProps) {
           </div>
 
           <div className="hidden xl:flex shrink-0 items-center gap-2 sm:gap-3">
-            <LocaleSwitcher locale={locale} />
+            <LocaleSwitcher locale={locale} loadingLabel={loadingLabel} />
             {ctaButton}
           </div>
         </div>

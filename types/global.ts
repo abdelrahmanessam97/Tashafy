@@ -16,6 +16,7 @@ export type NavbarProps = {
   locale: string;
   labels: NavLabels;
   searchPlaceholder?: string;
+  loadingLabel?: string;
 };
 
 /** Footer label keys and link item type */

@@ -10,13 +10,14 @@ type MainSectionProps = {
   motto: string;
   heading: string;
   searchPlaceholder: string;
+  loadingLabel?: string;
 };
 
-const MainSection = ({ locale, labels, motto, heading, searchPlaceholder }: MainSectionProps) => {
+const MainSection = ({ locale, labels, motto, heading, searchPlaceholder, loadingLabel }: MainSectionProps) => {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-start my-1 overflow-hidden">
-      <div className="sticky top-0 z-50 w-full max-w-[min(95%,80rem)] mx-auto px-0 md:px-4 shrink-0">
-        <Navbar locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} />
+      <div className="sticky top z-50 w-full max-w-[min(95%,80rem)] mx-auto px-0 md:px-4 shrink-0">
+        <Navbar locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} loadingLabel={loadingLabel} />
       </div>
 
       <div className="container overflow-hidden flex-1 min-h-0 w-full">

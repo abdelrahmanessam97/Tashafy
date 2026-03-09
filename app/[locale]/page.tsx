@@ -19,7 +19,7 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <main className="flex flex-col items-center  ">
-      <MainSection locale={locale} labels={labels} motto={t("hero.motto")} heading={t("hero.heading")} searchPlaceholder={t("nav.searchPlaceholder")} />
+      <MainSection locale={locale} labels={labels} motto={t("hero.motto")} heading={t("hero.heading")} searchPlaceholder={t("nav.searchPlaceholder")} loadingLabel={t("common.loading")} />
     </main>
   );
 }
