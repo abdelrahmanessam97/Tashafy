@@ -1,9 +1,7 @@
-import Link from "next/link";
-import { getTranslations } from "@/lib/localization/i18n-server";
-import { Button } from "@/components/ui/button";
-import { LocaleSwitcher } from "@/components/shared/LocaleSwitcher";
-import { ToastDemo } from "@/components/shared/ToastDemo";
 import { Metadata } from "next";
+import MainSection from "@/components/home/MainSection";
+import { getTranslations } from "@/lib/localization/i18n-server";
+import { getNavAndFooterLabels } from "@/data/global";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -17,17 +15,11 @@ export const metadata: Metadata = {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const { t } = getTranslations(locale);
+  const { labels } = getNavAndFooterLabels(t);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-6 bg-zinc-50 font-sans dark:bg-black">
-      <LocaleSwitcher locale={locale} />
-      <h1 className="text-2xl font-semibold">
-        {t("hello")} — {t("welcome")}
-      </h1>
-      <Button asChild>
-        <Link href={`/${locale}/users`}>{t("goToUsers")}</Link>
-      </Button>
-      <ToastDemo />
-    </div>
+    <main className="flex flex-col items-center  ">
+      <MainSection locale={locale} labels={labels} motto={t("hero.motto")} heading={t("hero.heading")} searchPlaceholder={t("nav.searchPlaceholder")} />
+    </main>
   );
 }

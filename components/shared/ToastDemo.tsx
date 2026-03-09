@@ -3,10 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-/**
- * Example: trigger global toasts from a client component.
- * Remove or hide this once you no longer need the demo.
- */
 export function ToastDemo() {
   return (
     <div className="flex flex-wrap gap-2">

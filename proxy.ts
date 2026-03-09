@@ -6,20 +6,16 @@ function getLocaleFromPathname(pathname: string): string | null {
   return segment && isValidLocale(segment) ? segment : null;
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Root: redirect to default locale (optional: use Accept-Language for /ar)
+  // redirect to default locale
   if (pathname === "/") {
-    const acceptLanguage = request.headers.get("accept-language") ?? "";
-    const prefersAr = acceptLanguage.toLowerCase().includes("ar");
-    const locale = prefersAr ? "ar" : DEFAULT_LOCALE;
-    return NextResponse.redirect(new URL(`/${locale}`, request.url));
+    return NextResponse.redirect(new URL(`/${DEFAULT_LOCALE}`, request.url));
   }
 
   const locale = getLocaleFromPathname(pathname);
 
-  // Path already has valid locale: forward with x-next-locale header
   if (locale) {
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set("x-next-locale", locale);
@@ -28,7 +24,6 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  // No locale in path: redirect to default locale prefix
   const newUrl = new URL(`/${DEFAULT_LOCALE}${pathname}`, request.url);
   newUrl.search = request.nextUrl.search;
   return NextResponse.redirect(newUrl);

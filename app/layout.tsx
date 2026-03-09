@@ -29,10 +29,10 @@ export default async function RootLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} dir={dir} suppressHydrationWarning>
-        <main>{children}</main>
-        <Toaster position="top-right" richColors closeButton />
+    <html lang={locale} dir={dir}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning cz-shortcut-listen="true">
+        <main className="">{children}</main>
+        <Toaster position={dir === "rtl" ? "top-left" : "top-right"} richColors closeButton />
       </body>
     </html>
   );

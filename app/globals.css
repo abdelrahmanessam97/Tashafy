@@ -49,18 +49,36 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #f9fafc;
+  --background-success: #10b981;
+  --background-danger: #ef4444;
+  --background-warning: #eab308;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  /* --card: oklch(1 0 0); */
+  /* --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0); */
+  /* --popover-foreground: oklch(0.145 0 0); */
+  --primary: #433ca6;
+  /* --primary-foreground: oklch(0.985 0 0); */
+  --secondary: #ef2752;
+  /* --secondary-foreground: oklch(0.205 0 0); */
+  --text-primary: #1f242e;
+  --text-secondary: #4e5663;
+  --text-brand: #282464;
+  --text-pink: #ff8faa66;
+  --text-blue: #6192ff66;
+  --text-rose: #ef2752;
+  --text-danger: #ef4444;
+  --text-muted: #9ca3af;
+  --text-accent: #374151;
+  --text-destructive: #ef4444;
+  --text-border: #e5e7eb;
+  --text-input: #d1d5db;
+  --text-ring: #9ca3af;
+  --borderBrandSecondary: rgba(172, 169, 216, 1);
+
+  /* --muted: oklch(0.97 0 0); */
+  /* --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
@@ -79,10 +97,10 @@
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.708 0 0); */
 }
 
-.dark {
+/* .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -114,7 +132,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-}
+} */
 
 @layer base {
   * {
@@ -123,4 +141,81 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.navbar {
+  backdrop-filter: blur(24px);
+  background: #f5e3e01f;
+  border-width: 0px, 2px, 2px, 2px;
+  border-style: solid;
+  border-color: #ffffff14;
+  height: 80;
+  opacity: 1;
+  left: 52px;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+  padding-top: 8px;
+  padding-right: 24px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+}
+
+.gradient-background {
+  background: linear-gradient(177.72deg, #433ca6 19.17%, #8984c8 135.32%);
+  background-blend-mode: multiply;
+}
+
+.footer-gradient-background {
+  background: linear-gradient(139deg, #faf5ff 10.51%, #efe0ff 87.75%);
+}
+
+.main-padding {
+  padding: 8px !important;
+}
+
+.container-padding {
+  padding-inline: 12px !important;
+}
+
+.padding-x {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+}
+
+.padding-y {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
+
+.main-margin {
+  margin: 8px !important;
+}
+
+.container-margin {
+  margin: 8px !important;
+}
+
+.margin-top {
+  margin-top: 12px !important;
+}
+
+.margin-bottom {
+  margin-bottom: 12px !important;
+}
+
+.margin-left {
+  margin-left: 12px !important;
+}
+
+.margin-x {
+  margin-left: 12px !important;
+  margin-right: 12px !important;
+}
+
+.margin-y {
+  margin-top: 12px !important;
+  margin-bottom: 12px !important;
 }
