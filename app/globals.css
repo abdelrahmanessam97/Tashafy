@@ -154,6 +154,8 @@
   left: 52px;
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
   border-right-width: 2px;
   border-bottom-width: 2px;
   border-left-width: 2px;
