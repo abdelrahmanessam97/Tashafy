@@ -1,5 +1,7 @@
 {
   "common.loading": "Loading...",
+  "notFound.title": "Page not found",
+  "notFound.description": "The page you're looking for doesn't exist or has been moved.",
   "hero.motto": "Your health journey starts here",
   "hero.heading": "We connect you with the best medical centers and specialists",
   "hello": "Hello",
