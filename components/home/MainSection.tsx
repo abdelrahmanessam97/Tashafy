@@ -23,7 +23,7 @@ const MainSection = ({ locale, labels, motto, heading, searchPlaceholder, loadin
       <div className="container overflow-hidden flex-1 min-h-0 w-full">
         <div className="absolute inset-0 w-[99%] mx-auto rounded-4xl overflow-hidden">
           <video controls={false} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" aria-hidden>
-            <source src="/home/main/home_main.mp4" type="video/mp4" />
+            <source src="/home_main.mp4" type="video/mp4" />
           </video>
           {/* overlay*/}
           <div className="absolute inset-0 w-full h-full bg-linear-to-b from-[#000000] to-[#000000] opacity-40 " aria-hidden />
@@ -34,7 +34,7 @@ const MainSection = ({ locale, labels, motto, heading, searchPlaceholder, loadin
           <div className="flex flex-1 flex-col items-center justify-center text-center px-4 py-16">
             <p className="text-white/95 text-lg md:text-xl font-medium mb-3">{motto}</p>
             <div className="my-4">
-              <Image src="/home/main/Vector.svg" className="w-full h-full" alt="Red Chevron" width={90} height={80} loading="lazy" />
+              <Image src="/Vector.svg" className="w-full h-full" alt="Red Chevron" width={90} height={80} loading="lazy" />
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-white leading-tight mb-8 md:mb-10">{heading}</h3>
             <div className="w-full max-w-2xl relative">
