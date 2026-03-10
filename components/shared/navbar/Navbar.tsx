@@ -1,14 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { NAV_ITEMS } from "@/data/global";
+import { cn } from "@/lib/utils";
+import type { NavbarProps } from "@/types/global";
+import { ChevronLeft, ChevronRight, Menu, Search } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Search, ChevronLeft, ChevronRight, Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import type { NavbarProps } from "@/types/global";
-import { NAV_ITEMS } from "@/data/global";
+import { useState } from "react";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenuDrawer } from "./MobileMenuDrawer";
 

@@ -1,8 +1,8 @@
+import { Input } from "@/components/ui/input";
+import { NavLabels } from "@/types/global";
 import { Search } from "lucide-react";
 import Image from "next/image";
-import { Input } from "@/components/ui/input";
 import { Navbar } from "../shared/navbar/Navbar";
-import { NavLabels } from "@/types/global";
 
 type MainSectionProps = {
   locale: string;
