@@ -34,12 +34,12 @@ export function Footer({ locale, labels }: FooterProps) {
       role="contentinfo"
       dir={isRtl ? "rtl" : "ltr"}
     >
-      {/* <div className="w-[96%] mx-auto px-0 md:px-4"> */}
       <div className="w-[96%] mx-auto px-0 md:px-4">
         <div className="px-0 sm:px-6 md:px-10 pt-16 pb-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto_auto_auto_auto] lg:gap-8">
             {/* Brand column: logo + tagline */}
             <div className="flex max-w-sm flex-col lg:max-w-xs">
+              
               <Link href={prefix || "/"} className="inline-flex flex-col leading-tight" aria-label="Tashafy Home">
                 <Image className="h-25 w-25" loading="eager" src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} alt="Tashafy" width={100} height={40} />
               </Link>
