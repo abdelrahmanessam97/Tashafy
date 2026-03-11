@@ -4,9 +4,11 @@ import MainSection from "@/components/home/MainSection";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { getNavAndFooterLabels } from "@/data/global";
 import { getOurServices } from "@/data/ourServices";
+import { getOurPartners } from "@/data/ourPartners";
 import { getOurStoryStats } from "@/data/ourStory";
 
 const OurService = dynamic(() => import("@/components/home/OurService").then((m) => m.OurService), { ssr: true });
+const OurPartners = dynamic(() => import("@/components/home/ourPartners").then((m) => m.OurPartners), { ssr: true });
 const OurStory = dynamic(() => import("@/components/home/OurStory").then((m) => m.OurStory), { ssr: true });
 
 type Props = {
@@ -23,6 +25,7 @@ export default async function HomePage({ params }: Props) {
   const { t } = getTranslations(locale);
   const { labels } = getNavAndFooterLabels(t);
   const services = getOurServices(t, locale);
+  const partners = getOurPartners(t);
   const ourStoryStats = getOurStoryStats(t);
 
   return (
@@ -42,6 +45,12 @@ export default async function HomePage({ params }: Props) {
         subtitle={t("services.subtitle")}
         services={services}
         learnMoreLabel={t("services.learnMore")}
+      />
+      <OurPartners
+        locale={locale}
+        title={t("partners.title")}
+        subtitle={t("partners.subtitle")}
+        partners={partners}
       />
       <OurStory locale={locale} title={t("ourStory.title")} subtitle={t("ourStory.subtitle")} stats={ourStoryStats} />
     </main>

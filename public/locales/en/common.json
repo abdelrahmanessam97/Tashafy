@@ -53,5 +53,11 @@
   "ourStory.subtitle": "We are committed to making your health journey smooth and reliable",
   "ourStory.statSpecialists": "medical specialists",
   "ourStory.statSuccessRate": "success rate",
-  "ourStory.statPatients": "happy patients"
+  "ourStory.statPatients": "happy patients",
+  "partners.title": "Our Partners",
+  "partners.subtitle": "We work with the best health institutions across the region",
+  "partners.islamicInsurance": "Islamic Insurance Co.",
+  "partners.university": "University",
+  "partners.euroArab": "Euro Arab Insurance",
+  "partners.housingBank": "Housing Bank"
 }
