@@ -24,7 +24,7 @@ export default async function HomePage({ params }: Props) {
   const ourStoryStats = getOurStoryStats(t);
 
   return (
-    <main className="flex flex-col items-center ">
+    <main className="flex flex-col items-center">
       <MainSection
         locale={locale}
         labels={labels}

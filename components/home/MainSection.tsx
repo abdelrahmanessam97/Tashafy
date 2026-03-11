@@ -22,8 +22,8 @@ export default function MainSection({
   loadingLabel,
 }: MainSectionProps) {
   return (
-    <section className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start my-1 scroll-smooth">
-      <div className="sticky top-2 z-50 w-[96%] mx-auto px-0 md:px-4 shrink-0 ">
+    <section className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start container-margin scroll-smooth">
+      <div className="sticky top-2 z-50 w-[96%] mx-auto container-padding shrink-0">
         <Navbar locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} loadingLabel={loadingLabel} />
       </div>
 
@@ -49,7 +49,7 @@ export default function MainSection({
 
         {/* Content */}
         <div className="relative z-10 w-[99%] mx-auto rounded-4xl flex flex-col min-h-[840px]">
-          <div className="flex flex-1 flex-col items-center justify-center text-center px-4 py-16">
+          <div className="flex flex-1 flex-col items-center justify-center text-center padding-x py-16">
             <p className="text-white/95 text-lg md:text-xl font-medium mb-3">{motto}</p>
             <div className="my-4">
               <Image

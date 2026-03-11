@@ -17,11 +17,11 @@ export const OurStory = memo(function OurStory({ locale, title, subtitle, stats 
 
   return (
     <section
-      className="relative w-full overflow-hidden py-16 md:py-24 [content-visibility:auto] [contain-intrinsic-size:auto_400px]"
+      className="relative w-full overflow-hidden py-16 md:py-24 padding-x [content-visibility:auto] [contain-intrinsic-size:auto_400px]"
       dir={isRtl ? "rtl" : "ltr"}
       style={{ backgroundColor: "#FCE7F3" }}
     >
-      <div className="relative w-full px-16">
+      <div className="relative w-[96%] mx-auto container-padding">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
           <div className={cn("flex flex-1 flex-col max-w-xl")}>
             <div className="flex items-center gap-2 relative">

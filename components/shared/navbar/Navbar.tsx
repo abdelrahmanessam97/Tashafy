@@ -61,7 +61,7 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
   return (
     <>
       <header className="w-full navbar mx-auto" dir={isRtl ? "rtl" : "ltr"}>
-        <div className="flex h-14 items-center justify-between gap-4 px-0 sm:px-6 md:px-10 min-w-0">
+        <div className="flex h-14 items-center justify-between gap-4 container-padding min-w-0">
           <div className="flex flex-1 items-center justify-between gap-4 min-w-0 md:justify-start md:gap-8">
             <Link href={localePrefix || "/"} className={cn("flex shrink-0 flex-col gap-0 leading-tight", isRtl ? "items-end" : "items-start")} aria-label="Tashafy Home">
               <Image src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} className="w-25 h-25" alt="Tashafy Logo" width={100} height={100} loading="eager" />
