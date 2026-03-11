@@ -1,11 +1,13 @@
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 import MainSection from "@/components/home/MainSection";
-import { OurService } from "@/components/home/OurService";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { getNavAndFooterLabels } from "@/data/global";
 import { getOurServices } from "@/data/ourServices";
 import { getOurStoryStats } from "@/data/ourStory";
-import { OurStory } from "@/components/home/OurStory";
+
+const OurService = dynamic(() => import("@/components/home/OurService").then((m) => m.OurService), { ssr: true });
+const OurStory = dynamic(() => import("@/components/home/OurStory").then((m) => m.OurStory), { ssr: true });
 
 type Props = {
   params: Promise<{ locale: string }>;

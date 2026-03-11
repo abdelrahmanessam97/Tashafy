@@ -8,8 +8,10 @@ export const OurService = memo(function OurService({ locale, title, titleHighlig
   const isRtl = locale === "ar";
 
   return (
-    <section className="relative w-full overflow-hidden py-16 md:py-24 margin-top [content-visibility:auto] [contain-intrinsic-size:auto_800px]" dir={isRtl ? "rtl" : "ltr"}>
-      {/* Subtle gradient overlay: left in LTR (en), right in RTL (ar) */}
+    <section
+      className="relative w-full overflow-hidden py-16 md:py-24 margin-top [content-visibility:auto] [contain-intrinsic-size:auto_800px]"
+      dir={isRtl ? "rtl" : "ltr"}
+    >
       <div
         className={cn(
           "pointer-events-none absolute inset-y-0 w-full from-primary/10 via-primary/3 to-transparent",

@@ -13,14 +13,7 @@ type MainSectionProps = {
   loadingLabel?: string;
 };
 
-export default function MainSection({
-  locale,
-  labels,
-  motto,
-  heading,
-  searchPlaceholder,
-  loadingLabel,
-}: MainSectionProps) {
+export default function MainSection({ locale, labels, motto, heading, searchPlaceholder, loadingLabel }: MainSectionProps) {
   return (
     <section className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start container-margin scroll-smooth">
       <div className="sticky top-2 z-50 w-[96%] mx-auto container-padding shrink-0">
@@ -52,15 +45,7 @@ export default function MainSection({
           <div className="flex flex-1 flex-col items-center justify-center text-center padding-x py-16">
             <p className="text-white/95 text-lg md:text-xl font-medium mb-3">{motto}</p>
             <div className="my-4">
-              <Image
-              src="/Vector.svg"
-              className="w-full h-full"
-              alt=""
-              width={90}
-              height={80}
-              priority
-              fetchPriority="high"
-            />
+              <Image src="/Vector.svg" className="w-full h-full" alt="Vector" width={90} height={80} priority fetchPriority="high" />
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-white leading-tight mb-8 md:mb-10">{heading}</h3>
             <div className="w-full max-w-2xl relative">
