@@ -4,6 +4,8 @@ import { OurService } from "@/components/home/OurService";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { getNavAndFooterLabels } from "@/data/global";
 import { getOurServices } from "@/data/ourServices";
+import { getOurStoryStats } from "@/data/ourStory";
+import { OurStory } from "@/components/home/OurStory";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -19,6 +21,7 @@ export default async function HomePage({ params }: Props) {
   const { t } = getTranslations(locale);
   const { labels } = getNavAndFooterLabels(t);
   const services = getOurServices(t, locale);
+  const ourStoryStats = getOurStoryStats(t);
 
   return (
     <main className="flex flex-col items-center ">
@@ -38,6 +41,7 @@ export default async function HomePage({ params }: Props) {
         services={services}
         learnMoreLabel={t("services.learnMore")}
       />
+      <OurStory locale={locale} title={t("ourStory.title")} subtitle={t("ourStory.subtitle")} stats={ourStoryStats} />
     </main>
   );
 }

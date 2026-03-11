@@ -48,5 +48,10 @@
   "services.wellness.title": "العافية",
   "services.wellness.description": "اكتشف برامج واستجمام مصممة لعافيتك، في بيئات هادئة بدعم من خبراء.",
   "services.heal.title": "هيل",
-  "services.heal.description": "دعم تأهيل وتعافي شخصي لمساعدتك على الشفاء واستعادة أفضل جودة حياة."
+  "services.heal.description": "دعم تأهيل وتعافي شخصي لمساعدتك على الشفاء واستعادة أفضل جودة حياة.",
+  "ourStory.title": "الأرقام التي تحكي قصتنا",
+  "ourStory.subtitle": "نحن ملتزمون بجعل رحلتك الصحية سلسة وموثوقة",
+  "ourStory.statSpecialists": "متخصص طبي",
+  "ourStory.statSuccessRate": "نسبة النجاح",
+  "ourStory.statPatients": "مريض سعيد"
 }

@@ -48,5 +48,10 @@
   "services.wellness.title": "Wellness",
   "services.wellness.description": "Discover programs and retreats designed for your wellbeing, in serene environments supported by experts.",
   "services.heal.title": "Heal",
-  "services.heal.description": "Personalized rehabilitation and recovery support to help you heal and regain your best quality of life."
+  "services.heal.description": "Personalized rehabilitation and recovery support to help you heal and regain your best quality of life.",
+  "ourStory.title": "The numbers that tell our story",
+  "ourStory.subtitle": "We are committed to making your health journey smooth and reliable",
+  "ourStory.statSpecialists": "medical specialists",
+  "ourStory.statSuccessRate": "success rate",
+  "ourStory.statPatients": "happy patients"
 }

@@ -165,11 +165,6 @@
   padding-left: 24px;
 }
 
-.gradient-background {
-  background: linear-gradient(177.72deg, #433ca6 19.17%, #8984c8 135.32%);
-  background-blend-mode: multiply;
-}
-
 .footer-gradient-background {
   background: linear-gradient(139deg, #faf5ff 10.51%, #efe0ff 87.75%);
 }
