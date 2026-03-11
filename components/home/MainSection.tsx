@@ -13,16 +13,34 @@ type MainSectionProps = {
   loadingLabel?: string;
 };
 
-const MainSection = ({ locale, labels, motto, heading, searchPlaceholder, loadingLabel }: MainSectionProps) => {
+export default function MainSection({
+  locale,
+  labels,
+  motto,
+  heading,
+  searchPlaceholder,
+  loadingLabel,
+}: MainSectionProps) {
   return (
-    <section className="relative Z-50 w-full min-h-screen flex flex-col items-center justify-start my-1 scroll-smooth">
+    <section className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start my-1 scroll-smooth">
       <div className="sticky top-2 z-50 w-[96%] mx-auto px-0 md:px-4 shrink-0 ">
         <Navbar locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} loadingLabel={loadingLabel} />
       </div>
 
       <div className="container overflow-hidden flex-1 min-h-0 w-full">
         <div className="absolute inset-0 w-[99%] mx-auto rounded-4xl overflow-hidden">
-          <video controls={false} autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover" aria-hidden>
+          <video
+            controls={false}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            disablePictureInPicture
+            disableRemotePlayback
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden
+          >
             <source src="/home_main.mp4" type="video/mp4" />
           </video>
           {/* overlay*/}
@@ -34,7 +52,15 @@ const MainSection = ({ locale, labels, motto, heading, searchPlaceholder, loadin
           <div className="flex flex-1 flex-col items-center justify-center text-center px-4 py-16">
             <p className="text-white/95 text-lg md:text-xl font-medium mb-3">{motto}</p>
             <div className="my-4">
-              <Image src="/Vector.svg" className="w-full h-full" alt="Red Chevron" width={90} height={80} loading="lazy" />
+              <Image
+              src="/Vector.svg"
+              className="w-full h-full"
+              alt=""
+              width={90}
+              height={80}
+              priority
+              fetchPriority="high"
+            />
             </div>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl  font-bold text-white leading-tight mb-8 md:mb-10">{heading}</h3>
             <div className="w-full max-w-2xl relative">
@@ -51,6 +77,4 @@ const MainSection = ({ locale, labels, motto, heading, searchPlaceholder, loadin
       </div>
     </section>
   );
-};
-
-export default MainSection;
+}

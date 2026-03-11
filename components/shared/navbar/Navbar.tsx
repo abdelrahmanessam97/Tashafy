@@ -8,29 +8,54 @@ import { ChevronLeft, ChevronRight, Menu, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+  import { memo, useCallback, useMemo, useState } from "react";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenuDrawer } from "./MobileMenuDrawer";
 
-export function Navbar({ locale, labels, searchPlaceholder, loadingLabel }: NavbarProps) {
+const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loadingLabel }: NavbarProps) {
   const pathname = usePathname();
   const localePrefix = `/${locale}`;
   const isRtl = locale === "ar";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const isActive = (path: string) => {
-    const fullPath = path ? `${localePrefix}${path}` : localePrefix;
-    if (path === "") return pathname === localePrefix || pathname === `${localePrefix}/`;
-    return pathname.startsWith(fullPath);
-  };
+  const isActive = useCallback(
+    (path: string) => {
+      const fullPath = path ? `${localePrefix}${path}` : localePrefix;
+      if (path === "") return pathname === localePrefix || pathname === `${localePrefix}/`;
+      return pathname.startsWith(fullPath);
+    },
+    [pathname, localePrefix],
+  );
 
-  const ctaButton = (
+  const ctaButton = useMemo(
+    () => (
     <Button asChild className="bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary/50 shrink-0">
       <Link href={`${localePrefix}/contact`} className="inline-flex items-center gap-2">
         {labels.freeConsultation}
         {isRtl ? <ChevronLeft className="size-4" aria-hidden /> : <ChevronRight className="size-4" aria-hidden />}
       </Link>
     </Button>
+  ),
+    [localePrefix, labels.freeConsultation, isRtl],
+  );
+
+  const navLinks = useMemo(
+    () =>
+      NAV_ITEMS.map(({ key, path }) => {
+        const href = path ? `${localePrefix}${path}` : localePrefix;
+        const active = isActive(path);
+        return (
+          <Link
+            key={key}
+            href={href}
+            className={cn("relative px-3 py-2 text-sm font-medium text-white transition-colors hover:text-white/90", active && "text-white")}
+          >
+            {labels[key]}
+            {active && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary" aria-hidden />}
+          </Link>
+        );
+      }),
+    [localePrefix, labels, isActive],
   );
 
   return (
@@ -55,20 +80,7 @@ export function Navbar({ locale, labels, searchPlaceholder, loadingLabel }: Navb
             </div>
 
             <nav className="hidden xl:flex items-center gap-1" aria-label="Main navigation">
-              {NAV_ITEMS.map(({ key, path }) => {
-                const href = path ? `${localePrefix}${path}` : localePrefix;
-                const active = isActive(path);
-                return (
-                  <Link
-                    key={key}
-                    href={href}
-                    className={cn("relative px-3 py-2 text-sm font-medium text-white transition-colors hover:text-white/90", active && "text-white")}
-                  >
-                    {labels[key]}
-                    {active && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary" aria-hidden />}
-                  </Link>
-                );
-              })}
+              {navLinks}
 
               <button
                 type="button"
@@ -97,4 +109,6 @@ export function Navbar({ locale, labels, searchPlaceholder, loadingLabel }: Navb
       />
     </>
   );
-}
+});
+
+export { Navbar };
