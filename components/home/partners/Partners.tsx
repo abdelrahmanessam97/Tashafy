@@ -30,15 +30,7 @@ export function Partners({ locale, title, subtitle, partners }: PartnersProps) {
             {title}
           </h2>
           {subtitle != null && subtitle.trim() !== "" && (
-            <p
-              className={cn(
-                "mt-4 text-sm md:text-xl leading-relaxed text-pretty wrap-break-word max-w-full",
-                "text-muted-foreground dark:text-muted-foreground",
-                isRtl ? "text-right" : "text-left",
-              )}
-            >
-              {subtitle}
-            </p>
+            <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
           )}
         </div>
 

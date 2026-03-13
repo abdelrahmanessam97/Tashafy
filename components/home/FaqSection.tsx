@@ -17,9 +17,9 @@ export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
           {/* Header column: title + intro — aligns to start (right in RTL, left in LTR) */}
           <div className="flex flex-col gap-4 w-full">
-            <h2 className={cn("text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)", isRtl ? "text-right" : "text-left")}>{title}</h2>
+            <h2 className={cn("text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)", isRtl ? "text-right" : "text-left")}>{title}</h2>
             {intro != null && intro.trim() !== "" && (
-              <p className={cn("text-sm md:text-lg leading-relaxed text-pretty text-(--text-secondary) max-w-lg", isRtl ? "text-right" : "text-left")}>{intro}</p>
+              <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{intro}</p>
             )}
           </div>
 

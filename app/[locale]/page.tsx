@@ -11,8 +11,10 @@ import { getFaqItems } from "@/data/faq";
 import { getOurStoryStats } from "@/data/ourStory";
 import { getWhyChooseFeatures, getWhyChooseStats } from "@/data/whyChoose";
 import { getArticles } from "@/data/articles";
+import { getPrograms } from "@/data/programs";
 
 const ServiceSection = dynamic(() => import("@/components/home/services/ServiceSection").then((m) => m.ServiceSection), { ssr: true });
+const ProgramsSection = dynamic(() => import("@/components/home/programs/ProgramsSection").then((m) => m.ProgramsSection), { ssr: true });
 const LatestArticlesSection = dynamic(() => import("@/components/home/artical/LatestArticlesSection").then((m) => m.LatestArticlesSection), { ssr: true });
 const WhyChooseSection = dynamic(() => import("@/components/home/WhyChooseSection").then((m) => m.WhyChooseSection), { ssr: true });
 const OurPartners = dynamic(() => import("@/components/home/partners/Partners").then((m) => m.Partners), { ssr: true });
@@ -43,6 +45,7 @@ export default async function HomePage({ params }: Props) {
   const whyChooseFeatures = getWhyChooseFeatures(t);
   const whyChooseStats = getWhyChooseStats(t);
   const articles = getArticles(t);
+  const programs = getPrograms(t);
 
   return (
     <main className="flex flex-col items-center">
@@ -61,6 +64,14 @@ export default async function HomePage({ params }: Props) {
         subtitle={t("services.subtitle")}
         services={services}
         learnMoreLabel={t("services.learnMore")}
+      />
+      <ProgramsSection
+        locale={locale}
+        title={t("programs.title")}
+        subtitle={t("programs.subtitle")}
+        programs={programs}
+        bookLabel={t("programs.bookLabel")}
+        bestSellerLabel={t("programs.bestSeller")}
       />
       <OurPartners locale={locale} title={t("partners.title")} subtitle={t("partners.subtitle")} partners={partners} />
       <WhyChooseSection

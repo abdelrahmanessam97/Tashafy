@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { WhyChooseSectionProps } from "@/types/whyChoose";
+import type { WhyChooseFeature, WhyChooseStat } from "@/types/whyChoose";
 import Link from "next/link";
 import { Tag, Building2, Smile, Star } from "lucide-react";
 import Image from "next/image";
@@ -13,6 +13,17 @@ const iconMap = {
   star: Star,
 };
 
+type WhyChooseSectionProps = {
+  locale: string;
+  title: string;
+  subtitle: string;
+  features: WhyChooseFeature[];
+  stats: WhyChooseStat[];
+  ctaPrimary: string;
+  ctaSecondary: string;
+  ctaPrimaryHref?: string;
+  ctaSecondaryHref?: string;
+};
 export function WhyChooseSection({
   locale,
   title,
@@ -57,21 +68,21 @@ export function WhyChooseSection({
           {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
           <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start gap-5 sm:gap-6 md:gap-8", !isRtl ? "items-start" : "items-end")}>
             <div className={cn("flex flex-col gap-3 sm:gap-4", !isRtl ? "items-start" : "items-end")}>
-              <h2 className="relative text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-[4rem] font-bold text-(--text-brand) leading-tight max-w-xl">
+              <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
                 {title}
                 <Image
                   src="/Group.svg"
-                  alt=""
-                  width={80}
-                  height={80}
+                  alt="Why Choose Tashafy"
+                  width={50}
+                  height={50}
                   className={cn(
-                    "absolute w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 -top-6 sm:-top-8",
-                    !isRtl ? "-right-16 sm:-right-20 md:-right-24" : "-left-16 sm:-left-20 md:-left-24",
+                    "absolute w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-24 -top-5 sm:-top-6",
+                    !isRtl ? "-right-16 sm:-right-20 md:-right-20" : "-left-16 sm:-left-20 md:-left-20",
                   )}
                   aria-hidden
                 />
               </h2>
-              <p className="text-sm sm:text-base md:text-2xl lg:text-3xl text-(--text-secondary) max-w-xl text-right">{subtitle}</p>
+              <p className="mt-4 text-base md:text-xl max-w-full">{subtitle}</p>
             </div>
             <div className={cn("flex flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12", !isRtl ? "justify-start" : "justify-end")}>
               {stats.map((stat, index) => (

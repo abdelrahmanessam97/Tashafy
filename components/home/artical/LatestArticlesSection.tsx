@@ -23,8 +23,8 @@ export function LatestArticlesSection({ locale, title, subtitle, viewAllLabel, v
         {/* Header row: title + subtitle on one side, View All button on the other */}
         <header className="flex flex-wrap items-start justify-between gap-6 mb-10 md:mb-14">
           <div className={cn("flex flex-col gap-1", isRtl ? " text-right" : "text-left")}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) dark:text-white">{title}</h2>
-            {subtitle != null && subtitle.trim() !== "" && <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">{subtitle}</p>}
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">{title}</h2>
+            {subtitle != null && subtitle.trim() !== "" && <p className="mt-4 text-base md:text-xl max-w-full text-(--text-secondary)">{subtitle}</p>}
           </div>
           <Button asChild variant="outline" className="rounded-md  border-[#D1D5DE] bg-white hover:bg-gray-100 text-[#1f242e] text-base font-medium px-6 py-5 shrink-0">
             <Link href={viewAllHref}>{viewAllLabel}</Link>

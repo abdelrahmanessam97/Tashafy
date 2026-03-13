@@ -37,7 +37,7 @@ export const OurStory = memo(function OurStory({ locale, title, subtitle, stats 
               />
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2B5B] mb-3 leading-tight">{title}</h2>
             </div>
-            <p className="text-sm md:text-xl text-[#6B7280] leading-relaxed">{subtitle}</p>
+            <p className="mt-4 text-base md:text-xl max-w-full text-(--text-secondary)">{subtitle}</p>
           </div>
 
           <div className={cn("flex w-full items-center justify-center flex-1 flex-wrap gap-8 lg:gap-16")}>

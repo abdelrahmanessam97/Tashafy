@@ -42,8 +42,8 @@ export function Certificationssection({ locale, title, titleHighlight, subtitle,
           {subtitle != null && subtitle.trim() !== "" && (
             <p
               className={cn(
-                "mt-8 text-sm md:text-xl leading-relaxed text-pretty wrap-break-word max-w-full",
-                "text-muted-foreground dark:text-muted-foreground",
+                "mt-4 text-base md:text-xl max-w-full",
+                "text-(--text-secondary)",
                 isRtl ? "text-right" : "text-left",
               )}
             >

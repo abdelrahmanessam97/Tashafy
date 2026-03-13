@@ -1,8 +1,18 @@
 import { cn } from "@/lib/utils";
-import type { OurServiceProps } from "@/types/ourServices";
+import type { ServiceItem } from "@/types/ourServices";
 import Image from "next/image";
 import { memo } from "react";
 import { ServiceCard } from "./ServiceCard";
+
+type OurServiceProps = {
+  locale: string;
+  title: string;
+  titleHighlight?: string;
+  subtitle: string;
+  services: ServiceItem[];
+  learnMoreLabel: string;
+  profileImage?: string;
+};
 
 export const ServiceSection = memo(function OurService({ locale, title, titleHighlight, subtitle, services, learnMoreLabel }: OurServiceProps) {
   const isRtl = locale === "ar";
@@ -45,13 +55,7 @@ export const ServiceSection = memo(function OurService({ locale, title, titleHig
               )}
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p
-                className={cn(
-                  "mt-8 text-sm md:text-xl leading-relaxed text-pretty wrap-break-word max-w-full",
-                  "text-muted-foreground dark:text-muted-foreground",
-                  isRtl ? "text-right" : "text-left",
-                )}
-              >
+              <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
                 {subtitle}
               </p>
             )}
