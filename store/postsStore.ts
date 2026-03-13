@@ -2,7 +2,7 @@ import { create } from "zustand";
 import api from "@/lib/api/useApi";
 import { Post, PostsState } from "@/types/posts";
 
-export const usePostsStore = create<PostsState>((set, get) => ({
+export const usePostsStore = create<PostsState>((set) => ({
   posts: [],
   currentPost: null,
   loading: false,

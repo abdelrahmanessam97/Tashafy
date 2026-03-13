@@ -39,15 +39,7 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
               </span>
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p
-                className={cn(
-                  "mt-4 text-base md:text-xl max-w-full",
-                  "text-(--text-secondary)",
-                  isRtl ? "text-right" : "text-left",
-                )}
-              >
-                {subtitle}
-              </p>
+              <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
             )}
           </div>
 
