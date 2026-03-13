@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import { notoNaskhArabicFont } from "@/lib/fonts/fonts";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir}>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning cz-shortcut-listen="true">
+      <body className={`${notoNaskhArabicFont.className} antialiased`} suppressHydrationWarning cz-shortcut-listen="true">
         <main className="">{children}</main>
         <Toaster position={dir === "rtl" ? "top-left" : "top-right"} richColors closeButton />
       </body>

@@ -9,14 +9,14 @@ type PartnerCardProps = {
 
 export function PartnerCard({ partner }: PartnerCardProps) {
   const content = (
-    <Card className="h-full border-0 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
-      <CardContent className="flex items-center justify-center p-6 min-h-[120px] md:min-h-[140px]">
+    <Card className="h-full border-0 border-[#e5e7eb] bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+      <CardContent className="flex items-center justify-center p-2 min-h-[100px] md:min-h-[120px]">
         <Image
           src={partner.logo}
           alt={partner.name}
           width={160}
           height={80}
-          className="w-full h-auto max-h-16 object-contain object-center"
+          className="w-full h-auto max-h-26 object-contain object-center"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
         />
       </CardContent>

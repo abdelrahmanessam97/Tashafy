@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Menu, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-  import { memo, useCallback, useMemo, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenuDrawer } from "./MobileMenuDrawer";
 
@@ -29,13 +29,13 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
 
   const ctaButton = useMemo(
     () => (
-    <Button asChild className="bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary/50 shrink-0">
-      <Link href={`${localePrefix}/contact`} className="inline-flex items-center gap-2">
-        {labels.freeConsultation}
-        {isRtl ? <ChevronLeft className="size-4" aria-hidden /> : <ChevronRight className="size-4" aria-hidden />}
-      </Link>
-    </Button>
-  ),
+      <Button asChild className="bg-primary text-white hover:bg-primary/90 focus-visible:ring-primary/50 shrink-0">
+        <Link href={`${localePrefix}/contact`} className="inline-flex items-center gap-2">
+          {labels.freeConsultation}
+          {isRtl ? <ChevronLeft className="size-4" aria-hidden /> : <ChevronRight className="size-4" aria-hidden />}
+        </Link>
+      </Button>
+    ),
     [localePrefix, labels.freeConsultation, isRtl],
   );
 
@@ -45,11 +45,7 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
         const href = path ? `${localePrefix}${path}` : localePrefix;
         const active = isActive(path);
         return (
-          <Link
-            key={key}
-            href={href}
-            className={cn("relative px-3 py-2 text-sm font-medium text-white transition-colors hover:text-white/90", active && "text-white")}
-          >
+          <Link key={key} href={href} className={cn("relative px-3 py-2 text-sm font-medium text-white transition-colors hover:text-white/90", active && "text-white")}>
             {labels[key]}
             {active && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary" aria-hidden />}
           </Link>
@@ -64,7 +60,7 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
         <div className="flex h-14 items-center justify-between gap-4 container-padding min-w-0">
           <div className="flex flex-1 items-center justify-between gap-4 min-w-0 md:justify-start md:gap-8">
             <Link href={localePrefix || "/"} className={cn("flex shrink-0 flex-col gap-0 leading-tight", isRtl ? "items-end" : "items-start")} aria-label="Tashafy Home">
-              <Image src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} className="w-25 h-25" alt="Tashafy Logo" width={100} height={100} loading="eager" />
+              <Image src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} width={100} height={100} className="w-25 h-25" alt="Tashafy Logo" loading="eager" />
             </Link>
             <div className="flex items-center gap-2 ms-auto xl:hidden">
               <span className="flex shrink-0">{ctaButton}</span>

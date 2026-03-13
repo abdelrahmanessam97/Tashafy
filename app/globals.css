@@ -139,7 +139,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 
@@ -178,8 +178,8 @@
 }
 
 .padding-x {
-  padding-left:28px !important;
-  padding-right:28px !important;
+  padding-left: 28px !important;
+  padding-right: 28px !important;
 }
 
 .padding-y {

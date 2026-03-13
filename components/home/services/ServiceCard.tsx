@@ -29,11 +29,7 @@ export const ServiceCard = memo(function ServiceCard({ service, learnMoreLabel, 
         <CardContent
           className={cn(
             "absolute -bottom-15 min-h-[280px] w-full bg-white p-6 transition-all duration-300 ease-out group-hover:-bottom-9 group-hover:bg-primary group-hover:text-white",
-            isRtl
-              ?"right-[35%] rounded-tr-2xl group-hover:right-[30%]"
-              :
-              "left-[35%] rounded-tl-2xl group-hover:left-[30%]"
-               ,
+            isRtl ? "right-[35%] rounded-tr-2xl group-hover:right-[30%]" : "left-[35%] rounded-tl-2xl group-hover:left-[30%]",
           )}
         >
           <div className="flex flex-col gap-2 w-full">

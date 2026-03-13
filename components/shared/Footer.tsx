@@ -39,9 +39,8 @@ export function Footer({ locale, labels }: FooterProps) {
           <div className="grid gap-10 lg:grid-cols-[1fr_auto_auto_auto_auto] lg:gap-8">
             {/* Brand column: logo + tagline */}
             <div className="flex max-w-sm flex-col lg:max-w-xs">
-              
               <Link href={prefix || "/"} className="inline-flex flex-col leading-tight" aria-label="Tashafy Home">
-                <Image className="h-25 w-25" loading="eager" src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} alt="Tashafy" width={100} height={40} />
+                <Image width={100} height={100} className="h-25 w-25" loading="eager" src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} alt="Tashafy" />
               </Link>
               <p className="text-sm leading-relaxed text-muted-foreground">{labels.tagline}</p>
             </div>

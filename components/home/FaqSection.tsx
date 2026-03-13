@@ -1,0 +1,50 @@
+import { cn } from "@/lib/utils";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
+import { FaqItem } from "@/types/faq";
+
+type FaqSectionProps = {
+  locale: string;
+  title: string;
+  intro: string;
+  items: FaqItem[];
+};
+export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
+  const isRtl = locale === "ar";
+
+  return (
+    <section className="relative w-full overflow-hidden py-12 md:py-16 lg:py-24" dir={isRtl ? "rtl" : "ltr"}>
+      <div className="relative w-full max-w-[96%] mx-auto container-padding">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
+          {/* Header column: title + intro — aligns to start (right in RTL, left in LTR) */}
+          <div className="flex flex-col gap-4 w-full">
+            <h2 className={cn("text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)", isRtl ? "text-right" : "text-left")}>{title}</h2>
+            {intro != null && intro.trim() !== "" && (
+              <p className={cn("text-sm md:text-lg leading-relaxed text-pretty text-(--text-secondary) max-w-lg", isRtl ? "text-right" : "text-left")}>{intro}</p>
+            )}
+          </div>
+
+          {/* Accordion column */}
+          <div className="flex flex-col w-full">
+            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
+              {items.map((item, index) => (
+                <AccordionItem key={`${item.question}-${index}`} value={`item-${index}`} className="border-b border-[#e5e7eb] last:border-b-0">
+                  <AccordionTrigger
+                    className={cn(
+                      "cursor-pointer py-5 text-base md:text-lg font-semibold text-(--text-primary) hover:no-underline [&[data-state=open]>svg]:rotate-180 gap-3",
+                      isRtl ? "flex-row-reverse text-right" : "text-left",
+                    )}
+                  >
+                    <span className="flex-1 min-w-0 ">{item.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className={cn("pb-5 text-sm md:text-base text-(--text-secondary)  leading-relaxed", isRtl ? "text-right" : "text-left")}>
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
