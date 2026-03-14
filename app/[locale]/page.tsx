@@ -15,6 +15,7 @@ import { getPrograms } from "@/data/programs";
 import { getStartJourneySteps } from "@/data/recoveryJourney";
 import { getTestimonials } from "@/data/testimonials";
 import { getDestinations } from "@/data/destinations";
+import { getDoctors } from "@/data/doctors";
 
 const ServiceSection = dynamic(() => import("@/components/home/services/ServiceSection").then((m) => m.ServiceSection), { ssr: true });
 const StartJourneySection = dynamic(() => import("@/components/home/startJourney/StartJourneySection").then((m) => m.StartJourneySection), { ssr: true });
@@ -28,6 +29,9 @@ const FaqSection = dynamic(() => import("@/components/home/FaqSection").then((m)
 const OurStory = dynamic(() => import("@/components/home/OurStory").then((m) => m.OurStory), { ssr: true });
 const TestmoialsSection = dynamic(() => import("@/components/home/testmonials/TestmoialsSection").then((m) => m.TestmoialsSection), { ssr: true });
 const DentistSection = dynamic(() => import("@/components/home/dentist/dentistSection").then((m) => m.DentistSection), { ssr: true });
+const ConsultationsDoctorSection = dynamic(() => import("@/components/home/consultations/ConsultationsDoctorSection").then((m) => m.ConsultationsDoctorSection), {
+  ssr: true,
+});
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -55,6 +59,7 @@ export default async function HomePage({ params }: Props) {
   const startJourneySteps = getStartJourneySteps(t);
   const testimonials = getTestimonials(t);
   const destinations = getDestinations(t);
+  const doctors = getDoctors(t);
 
   return (
     <main className="flex flex-col items-center">
@@ -98,6 +103,14 @@ export default async function HomePage({ params }: Props) {
         ctaSecondaryHref={`/${locale}`}
       />
       <FeaturesBanner locale={locale} features={features} />
+      <ConsultationsDoctorSection
+        locale={locale}
+        title={t("doctors.title")}
+        subtitle={t("doctors.subtitle")}
+        highlightTag={t("doctors.highlightTag")}
+        bookNowLabel={t("doctors.bookNowLabel")}
+        doctors={doctors}
+      />
       <DentistSection
         locale={locale}
         title={t("destinations.title")}

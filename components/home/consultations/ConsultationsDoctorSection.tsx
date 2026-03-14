@@ -1,0 +1,95 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import type { DoctorItem } from "@/types/doctors";
+import { Sparkles } from "lucide-react";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { ConsultationsDoctorCard } from "./ConsultationsDoctorCard";
+
+export type ConsultationsDoctorSectionProps = {
+  locale: string;
+  title: string;
+  subtitle: string;
+  highlightTag: string;
+  bookNowLabel: string;
+  doctors: DoctorItem[];
+};
+
+const paginationClass = "doctor-pagination";
+
+export function ConsultationsDoctorSection({ locale, title, subtitle, highlightTag, bookNowLabel, doctors }: ConsultationsDoctorSectionProps) {
+  const isRtl = locale === "ar";
+
+  return (
+    <section
+      className="relative w-full overflow-hidden py-16 md:py-24 [content-visibility:auto] [contain-intrinsic-size:auto_600px]"
+      dir={isRtl ? "rtl" : "ltr"}
+      aria-label={title}
+    >
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-y-0 w-full from-primary/10 via-primary/3 to-transparent",
+          isRtl ? "left-0 bg-linear-to-r" : "right-0 bg-linear-to-l",
+        )}
+        aria-hidden
+      />
+      <div className="relative w-[96%] mx-auto container-padding">
+        {/* Header: Book Now button + text block (highlight tag, title, subtitle) */}
+        <div className="flex flex-col gap-12">
+          <div className={cn("w-full flex flex-col lg:flex-row justify-end items-center gap-4")}>
+            <div className={cn("flex-1 flex flex-col")}>
+              <div className={cn("flex items-start gap-4")}>
+                <div className="px-2 py-1 bg-rose-100 rounded-lg inline-flex items-center gap-1">
+                  <span className="text-xl font-medium text-rose-600 leading-8">{highlightTag}</span>
+                </div>
+                <Sparkles className="size-8 shrink-0 text-rose-600/80" aria-hidden />
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight max-w-[1056px]">{title}</h2>
+              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
+            </div>
+
+            <Button variant="default" size="lg" className="shrink-0 w-48 h-11 rounded-lg px-5 text-base font-medium" asChild>
+              <a href="#book">{bookNowLabel}</a>
+            </Button>
+          </div>
+
+          {/* Swiper: full width, pagination only */}
+          <div className="flex flex-col gap-6 w-full">
+            <div className="w-full overflow-hidden">
+              <Swiper
+                dir={isRtl ? "rtl" : "ltr"}
+                modules={[Pagination]}
+                pagination={{
+                  el: `.${paginationClass}`,
+                  clickable: true,
+                  bulletClass: "inline-block !w-3 !h-3 !rounded-[50px] bg-primary/20 transition-all",
+                  bulletActiveClass: "!w-6 !h-3 !rounded-[50px] !bg-primary shadow-[0px_1px_2px_0px_rgba(15,17,20,0.06)]",
+                }}
+                spaceBetween={20}
+                slidesPerView={1}
+                breakpoints={{
+                  640: { slidesPerView: 1.2 },
+                  768: { slidesPerView: 1.5 },
+                  1024: { slidesPerView: 2.3 },
+                  1280: { slidesPerView: 3.5 },
+                }}
+                className="overflow-hidden!"
+              >
+                {doctors.map((doctor, index) => (
+                  <SwiperSlide key={`${doctor.name}-${index}`}>
+                    <ConsultationsDoctorCard doctor={doctor} isRtl={isRtl} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+            {/* <div className={cn(paginationClass, "inline-flex justify-center items-center gap-2.5")} /> */}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
