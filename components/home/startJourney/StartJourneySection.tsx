@@ -44,13 +44,13 @@ export const StartJourneySection = memo(function StartJourneySection({
               <span className={cn("relative inline-block align-middle", isRtl ? "mr-2" : "ml-2")}>
                 <span className="hidden md:inline-block w-[120px] min-[380px]:w-[160px] sm:w-[200px] md:w-[200px] h-1 bg-[#cfcde9] rounded-xl shrink-0" aria-hidden />
                 <span
-                  className={cn("hidden md:block absolute w-1 bg-[#cfcde9] rounded-xl h-28 sm:h-20 md:h-32 top-4 sm:top-8", !isRtl ? "right-0" : "left-0")}
+                  className={cn("hidden md:block absolute w-1 bg-[#cfcde9] rounded-xl h-28 sm:h-20 md:h-32 ltr:h-40 top-4 sm:top-8", !isRtl ? "right-0" : "left-0")}
                   aria-hidden
                 />
               </span>
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p className={cn("mt-6 text-base md:text-xl max-w-full text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
+              <p className={cn("mt-6 text-base md:text-xl max-w-full text-(--text-secondary) ltr:w-[50%]", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
             )}
             <span className="relative mt-3 inline-block">
               <Image
@@ -70,7 +70,7 @@ export const StartJourneySection = memo(function StartJourneySection({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start justify-start">
           <div className="min-w-0 col-span-1"></div>
 
-          <div className="justify-self-start col-span-2 w-full mt-10">
+          <div className="justify-self-start col-span-2 w-full mt-10 overflow-hidden">
             <div className="flex flex-col gap-0 relative w-full">
               {steps.map((step, index) => (
                 <div key={`${step.label}-${index}`}>
@@ -79,7 +79,7 @@ export const StartJourneySection = memo(function StartJourneySection({
                 </div>
               ))}
 
-              <CardContent className=" flex items-center justify-between p-2 md:p-4 relative bg-primary/10 opacity-80 rounded-2xl mt-10">
+              <CardContent className=" flex items-center justify-between p-2 md:p-4 relative bg-[#CFCDE9] rounded-2xl mt-10 overflow-hidden">
                 <div className={cn("flex flex-col md:flex-row md:items-center gap-6", isRtl && "md:flex-row-reverse")}>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-xl md:text-3xl font-bold text-(--text-brand) mb-2">{ctaTitle}</h3>
@@ -99,7 +99,7 @@ export const StartJourneySection = memo(function StartJourneySection({
                   alt="Start Journey"
                   width={50}
                   height={50}
-                  className={cn("absolute top-5 h-40 w-40 object-contain hidden md:block", !isRtl ? "right-0" : "left-0")}
+                  className={cn("hidden lg:block absolute top-5 h-40 w-40 object-contain", !isRtl ? "-right-2 rotate-270" : "left-0 rotate-90")}
                 />
               </CardContent>
             </div>

@@ -13,6 +13,7 @@ import { getWhyChooseFeatures, getWhyChooseStats } from "@/data/whyChoose";
 import { getArticles } from "@/data/articles";
 import { getPrograms } from "@/data/programs";
 import { getStartJourneySteps } from "@/data/recoveryJourney";
+import { getTestimonials } from "@/data/testimonials";
 
 const ServiceSection = dynamic(() => import("@/components/home/services/ServiceSection").then((m) => m.ServiceSection), { ssr: true });
 const StartJourneySection = dynamic(() => import("@/components/home/startJourney/StartJourneySection").then((m) => m.StartJourneySection), { ssr: true });
@@ -24,6 +25,7 @@ const FeaturesBanner = dynamic(() => import("@/components/home/features/Features
 const Certificationssection = dynamic(() => import("@/components/home/certifications/Certificationssection").then((m) => m.Certificationssection), { ssr: true });
 const FaqSection = dynamic(() => import("@/components/home/FaqSection").then((m) => m.FaqSection), { ssr: true });
 const OurStory = dynamic(() => import("@/components/home/OurStory").then((m) => m.OurStory), { ssr: true });
+const TestmoialsSection = dynamic(() => import("@/components/home/testmonials/TestmoialsSection").then((m) => m.TestmoialsSection), { ssr: true });
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -49,6 +51,7 @@ export default async function HomePage({ params }: Props) {
   const articles = getArticles(t);
   const programs = getPrograms(t);
   const startJourneySteps = getStartJourneySteps(t);
+  const testimonials = getTestimonials(t);
 
   return (
     <main className="flex flex-col items-center">
@@ -99,6 +102,14 @@ export default async function HomePage({ params }: Props) {
         ctaSecondaryHref={`/${locale}`}
       />
       <FeaturesBanner locale={locale} features={features} />
+      <TestmoialsSection
+        locale={locale}
+        title={t("testimonials.title")}
+        subtitle={t("testimonials.subtitle")}
+        durationLabel={t("testimonials.durationLabel")}
+        countryLabel={t("testimonials.countryLabel")}
+        testimonials={testimonials}
+      />
       <Certificationssection
         locale={locale}
         title={t("certifications.title")}

@@ -60,9 +60,9 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
           <p className="text-lg md:text-xl font-bold text-(--text-brand)">{program.duration}</p>
           {program.summary != null && program.summary.trim() !== "" && <p className="text-base font-semibold text-(--text-secondary)">{program.summary}</p>}
         </div>
-        <ul className={cn("flex flex-col gap-2.5 text-base font-semibold text-(--text-secondary) leading-relaxed list-none", !isRtl ? "items-end" : "items-start")}>
+        <ul className="flex flex-col gap-2.5 text-base font-semibold text-(--text-secondary) leading-relaxed list-none items-start">
           {program.features.map((feature, i) => (
-            <li key={i} className={cn("flex gap-2 text-pretty wrap-break-word", !isRtl && "flex-row-reverse")}>
+            <li key={i} className={cn("flex gap-2 text-pretty wrap-break-word", isRtl && "flex-row-reverse")}>
               <BadgeCheck className="size-4 shrink-0 fill-primary text-white mt-0.5" aria-hidden />
               <span>{feature}</span>
             </li>
