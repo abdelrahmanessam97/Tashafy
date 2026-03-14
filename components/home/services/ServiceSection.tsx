@@ -7,14 +7,13 @@ import { ServiceCard } from "./ServiceCard";
 type OurServiceProps = {
   locale: string;
   title: string;
-  titleHighlight?: string;
   subtitle: string;
   services: ServiceItem[];
   learnMoreLabel: string;
   profileImage?: string;
 };
 
-export const ServiceSection = memo(function OurService({ locale, title, titleHighlight, subtitle, services, learnMoreLabel }: OurServiceProps) {
+export const ServiceSection = memo(function OurService({ locale, title, subtitle, services, learnMoreLabel }: OurServiceProps) {
   const isRtl = locale === "ar";
 
   return (
@@ -29,27 +28,19 @@ export const ServiceSection = memo(function OurService({ locale, title, titleHig
       <div className="relative w-[96%] mx-auto container-padding">
         <div className="">
           <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
               {title}
-              {titleHighlight != null && (
-                <span className="relative inline-block">
-                  {titleHighlight}
-                  <Image
-                    className={cn(
-                      "absolute -bottom-2 lg:-bottom-6 w-full min-w-[100px] h-auto object-contain",
-                      isRtl ? "right-0 object-bottom-right" : "left-0 object-bottom-left",
-                    )}
-                    src="/title-highlight.svg"
-                    alt=""
-                    width={200}
-                    height={24}
-                    sizes="200px"
-                    loading="lazy"
-                    decoding="async"
-                    aria-hidden
-                  />
-                </span>
-              )}
+              <Image
+                className="ms-auto"
+                src="/title-highlight.svg"
+                alt="title highlight"
+                width={200}
+                height={24}
+                sizes="200px"
+                loading="lazy"
+                decoding="async"
+                aria-hidden
+              />
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
               <p className={cn("mt-8 text-base md:text-xl max-w-full", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>

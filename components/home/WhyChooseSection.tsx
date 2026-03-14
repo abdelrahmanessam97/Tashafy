@@ -36,12 +36,55 @@ export function WhyChooseSection({
   ctaSecondaryHref = "#",
 }: WhyChooseSectionProps) {
   const isRtl = locale === "ar";
-  const sectionDir = isRtl ? "ltr" : "rtl";
 
   return (
-    <section className="relative w-full overflow-hidden pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-24 lg:pb-24 mt-8 md:mt-12 lg:mt-16" dir={sectionDir} aria-label={title}>
-      <div className="relative w-full max-w-[96%] mx-auto container-padding">
+    <section
+      className="relative w-full overflow-hidden py-16 md:py-24 [content-visibility:auto] [contain-intrinsic-size:auto_800px]"
+      dir={isRtl ? "rtl" : "ltr"}
+      aria-label={title}
+    >
+      <div className="relative w-[96%] mx-auto container-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-stretch">
+          {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
+          <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start gap-5 sm:gap-6 md:gap-8")}>
+            <div className={cn("flex flex-col")}>
+              <h2 className="flex items-center justify-start text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
+                {title}
+                <Image
+                  src="/Group.svg"
+                  alt="Why Choose Tashafy"
+                  width={50}
+                  height={50}
+                  className={cn("mb-8 w-16 h-16 ", !isRtl ? "transform rotate-130" : " ")}
+                  aria-hidden
+                />
+              </h2>
+              <p className="text-base md:text-xl max-w-full">{subtitle}</p>
+            </div>
+            <div className={cn("flex flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12 ")}>
+              {stats.map((stat, index) => (
+                <div key={`${stat.value}-${index}`} className={cn("flex flex-col items-center")}>
+                  <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)">{stat.value}</span>
+                  <span className="text-xs sm:text-sm md:text-base lg:text-xl text-(--text-secondary) mt-1 max-w-[200px] sm:max-w-[250px] text-center">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className={cn("flex flex-wrap gap-3 sm:gap-4")}>
+              <Button
+                asChild
+                className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl"
+              >
+                <Link href={ctaPrimaryHref}>{ctaPrimary}</Link>
+              </Button>
+              <Button
+                asChild
+                className="text-base sm:text-lg md:text-xl border border-[#D1D5DE] bg-white hover:bg-gray-100 text-[#1f242e] py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl font-medium"
+              >
+                <Link href={ctaSecondaryHref}>{ctaSecondary}</Link>
+              </Button>
+            </div>
+          </div>
+
           {/* Features card — order follows dir (right in RTL, left in LTR) */}
           <Card className="order-2 lg:order-1 rounded-lg border border-[#e5e7eb] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden h-fit">
             <CardContent className="p-5 sm:p-6 md:p-8 flex flex-col gap-5 sm:gap-6 md:gap-8">
@@ -64,49 +107,6 @@ export function WhyChooseSection({
               })}
             </CardContent>
           </Card>
-
-          {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
-          <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start gap-5 sm:gap-6 md:gap-8", isRtl ? "items-start" : "items-end")}>
-            <div className={cn("flex flex-col gap-3 sm:gap-4", isRtl ? "items-start" : "items-end")}>
-              <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
-                {title}
-                <Image
-                  src="/Group.svg"
-                  alt="Why Choose Tashafy"
-                  width={50}
-                  height={50}
-                  className={cn(
-                    "absolute w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-24 bottom-0",
-                    !isRtl ? "-right-16 sm:-right-20 md:-right-20 transform rotate-130" : "-left-16 sm:-left-20 md:-left-20 ",
-                  )}
-                  aria-hidden
-                />
-              </h2>
-              <p className="mt-4 text-base md:text-xl max-w-full">{subtitle}</p>
-            </div>
-            <div className={cn("flex flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12", isRtl ? "justify-start" : "justify-end")}>
-              {stats.map((stat, index) => (
-                <div key={`${stat.value}-${index}`} className={cn("flex flex-col items-center")}>
-                  <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)">{stat.value}</span>
-                  <span className="text-xs sm:text-sm md:text-base lg:text-xl text-(--text-secondary) mt-1 max-w-[200px] sm:max-w-[250px] text-center">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-            <div className={cn("flex flex-wrap gap-3 sm:gap-4", !isRtl && "flex-row-reverse justify-start")}>
-              <Button
-                asChild
-                className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl"
-              >
-                <Link href={ctaPrimaryHref}>{ctaPrimary}</Link>
-              </Button>
-              <Button
-                asChild
-                className="text-base sm:text-lg md:text-xl border border-[#D1D5DE] bg-white hover:bg-gray-100 text-[#1f242e] py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl font-medium"
-              >
-                <Link href={ctaSecondaryHref}>{ctaSecondary}</Link>
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </section>
