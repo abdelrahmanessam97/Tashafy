@@ -18,7 +18,7 @@ export function Partners({ locale, title, subtitle, partners }: PartnersProps) {
     <section className="relative w-full overflow-hidden bg-muted/40 py-16 md:py-24" dir={isRtl ? "rtl" : "ltr"}>
       <div className="relative w-[96%] mx-auto container-padding">
         <div className={cn("mb-12 md:mb-16", isRtl ? "text-right" : "text-left")}>
-          <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)  mb-3 inline-flex items-center gap-2 flex-wrap">
+          <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) inline-flex items-center gap-2 flex-wrap">
             <Image
               src="/cursor.svg"
               alt=""
@@ -30,7 +30,7 @@ export function Partners({ locale, title, subtitle, partners }: PartnersProps) {
             {title}
           </h2>
           {subtitle != null && subtitle.trim() !== "" && (
-            <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
+            <p className={cn("mt-6 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
           )}
         </div>
 

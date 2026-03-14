@@ -147,5 +147,21 @@
   "programs.genetic.f1": "تحليل الاستعداد الوراثي",
   "programs.genetic.f2": "تقييم مخاطر الأمراض الشائعة",
   "programs.genetic.f3": "تقرير مفصل + استشارة",
-  "programs.genetic.f4": "دعم ومساعدة في تحديد الخيارات العلاجية"
+  "programs.genetic.f4": "دعم ومساعدة في تحديد الخيارات العلاجية",
+  "recoveryJourney.title": "إبدأ رحلتك للتعافي",
+  "recoveryJourney.subtitle": "ابحث عن أفضل الوجهات التي تناسبك وتصفح مراكز التأهيل والتعافي",
+  "recoveryJourney.searchPlaceholder": "استكشف",
+  "recoveryJourney.steps.discover.title": "استكشف",
+  "recoveryJourney.steps.discover.description": "ابحث عن أفضل الوجهات التي تناسبك وتصفح مراكز التأهيل والتعافي",
+  "recoveryJourney.steps.consult.title": "استشر",
+  "recoveryJourney.steps.consult.description": "شارك تفاصيل حالتك معنا واحصل على أفضل التوصيات",
+  "recoveryJourney.steps.evaluate.title": "قيم",
+  "recoveryJourney.steps.evaluate.description": "باستخدام سجلك الصحي الرقمي، احصل على رأي طبي وتقدير للتكلفة",
+  "recoveryJourney.steps.arrange.title": "رتب",
+  "recoveryJourney.steps.arrange.description": "احصل على رحلة مخصصة ودعنا نساعدك في جميع ترتيبات سفرك",
+  "recoveryJourney.steps.followup.title": "تابع",
+  "recoveryJourney.steps.followup.description": "سافر مع الدعم الكامل. سنظل على اتصال بك من خلال المتابعة",
+  "recoveryJourney.cta.title": "هل أنت مستعد لبدء رحلتك ؟",
+  "recoveryJourney.cta.subtitle": "تواصل مع فريق الكونسيرج لدينا واعثر على الحل الصحي المثالي لك",
+  "recoveryJourney.cta.button": "احجز الان عبر الواتساب"
 }

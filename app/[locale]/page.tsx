@@ -12,8 +12,10 @@ import { getOurStoryStats } from "@/data/ourStory";
 import { getWhyChooseFeatures, getWhyChooseStats } from "@/data/whyChoose";
 import { getArticles } from "@/data/articles";
 import { getPrograms } from "@/data/programs";
+import { getStartJourneySteps } from "@/data/recoveryJourney";
 
 const ServiceSection = dynamic(() => import("@/components/home/services/ServiceSection").then((m) => m.ServiceSection), { ssr: true });
+const StartJourneySection = dynamic(() => import("@/components/home/startJourney/StartJourneySection").then((m) => m.StartJourneySection), { ssr: true });
 const ProgramsSection = dynamic(() => import("@/components/home/programs/ProgramsSection").then((m) => m.ProgramsSection), { ssr: true });
 const LatestArticlesSection = dynamic(() => import("@/components/home/artical/LatestArticlesSection").then((m) => m.LatestArticlesSection), { ssr: true });
 const WhyChooseSection = dynamic(() => import("@/components/home/WhyChooseSection").then((m) => m.WhyChooseSection), { ssr: true });
@@ -46,6 +48,7 @@ export default async function HomePage({ params }: Props) {
   const whyChooseStats = getWhyChooseStats(t);
   const articles = getArticles(t);
   const programs = getPrograms(t);
+  const startJourneySteps = getStartJourneySteps(t);
 
   return (
     <main className="flex flex-col items-center">
@@ -56,6 +59,16 @@ export default async function HomePage({ params }: Props) {
         heading={t("hero.heading")}
         searchPlaceholder={t("nav.searchPlaceholder")}
         loadingLabel={t("common.loading")}
+      />
+      <StartJourneySection
+        locale={locale}
+        title={t("recoveryJourney.title")}
+        subtitle={t("recoveryJourney.subtitle")}
+        steps={startJourneySteps}
+        ctaTitle={t("recoveryJourney.cta.title")}
+        ctaSubtitle={t("recoveryJourney.cta.subtitle")}
+        ctaButtonLabel={t("recoveryJourney.cta.button")}
+        ctaButtonHref="https://wa.me/1234567890"
       />
       <ServiceSection
         locale={locale}

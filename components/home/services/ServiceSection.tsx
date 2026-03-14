@@ -18,10 +18,7 @@ export const ServiceSection = memo(function OurService({ locale, title, titleHig
   const isRtl = locale === "ar";
 
   return (
-    <section
-      className="relative w-full overflow-hidden py-16 md:py-24 margin-top [content-visibility:auto] [contain-intrinsic-size:auto_800px]"
-      dir={isRtl ? "rtl" : "ltr"}
-    >
+    <section className="relative w-full overflow-hidden py-16 md:py-24 [content-visibility:auto] [contain-intrinsic-size:auto_800px]" dir={isRtl ? "rtl" : "ltr"}>
       <div
         className={cn(
           "pointer-events-none absolute inset-y-0 w-full from-primary/10 via-primary/3 to-transparent",
@@ -32,7 +29,7 @@ export const ServiceSection = memo(function OurService({ locale, title, titleHig
       <div className="relative w-[96%] mx-auto container-padding">
         <div className="">
           <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) mb-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
               {title}
               {titleHighlight != null && (
                 <span className="relative inline-block">
@@ -55,7 +52,7 @@ export const ServiceSection = memo(function OurService({ locale, title, titleHig
               )}
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
+              <p className={cn("mt-8 text-base md:text-xl max-w-full", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
                 {subtitle}
               </p>
             )}

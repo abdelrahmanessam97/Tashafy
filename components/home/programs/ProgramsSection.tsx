@@ -23,11 +23,11 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
       <div className="relative w-[96%] mx-auto container-padding">
         <div className="">
           <div className={cn("mb-12 md:mb-16", isRtl ? "text-right" : "text-left")}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) mb-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
               {title}
               <span className=" inline-block">
                 <Image
-                  className={cn("w-7 h-7 sm:w-16 sm:h-16 md:w-15 md:h-15 object-contain", isRtl ? "-right-2 object-bottom-right" : "-left-2 object-bottom-left")}
+                  className={cn("w-7 h-7 sm:w-16 sm:h-16 md:w-15 md:h-15 object-contain", isRtl ? "-right-2 object-bottom-right " : "-left-2 object-bottom-left transform rotate-130")}
                   src="/Highlight_05.svg"
                   alt=""
                   width={50}
@@ -39,7 +39,7 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
               </span>
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
+              <p className={cn("mt-6 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
             )}
           </div>
 

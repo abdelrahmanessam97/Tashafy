@@ -36,10 +36,13 @@ export function WhyChooseSection({
   ctaSecondaryHref = "#",
 }: WhyChooseSectionProps) {
   const isRtl = locale === "ar";
-  const sectionDir = isRtl ? "ltr" : "rtl";
 
   return (
-    <section className="relative w-full overflow-hidden pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-24 lg:pb-24 mt-8 md:mt-12 lg:mt-16" dir={sectionDir} aria-label={title}>
+    <section
+      className="relative w-full overflow-hidden pt-12 pb-12 md:pt-16 md:pb-16 lg:pt-24 lg:pb-24 mt-8 md:mt-12 lg:mt-16"
+      dir={isRtl ? "rtl" : "ltr"}
+      aria-label={title}
+    >
       <div className="relative w-full max-w-[96%] mx-auto container-padding">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-stretch">
           {/* Features card — order follows dir (right in RTL, left in LTR) */}
@@ -65,9 +68,9 @@ export function WhyChooseSection({
             </CardContent>
           </Card>
 
-          {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
-          <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start gap-5 sm:gap-6 md:gap-8", !isRtl ? "items-start" : "items-end")}>
-            <div className={cn("flex flex-col gap-3 sm:gap-4", !isRtl ? "items-start" : "items-end")}>
+          {/* CTA block — alignment follows dir (start = right in RTL, left in LTR) */}
+          <div className="order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start gap-5 sm:gap-6 md:gap-8 items-start">
+            <div className="flex flex-col gap-3 sm:gap-4 items-start">
               <h2 className="relative text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
                 {title}
                 <Image
@@ -76,23 +79,30 @@ export function WhyChooseSection({
                   width={50}
                   height={50}
                   className={cn(
-                    "absolute w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-24 -top-5 sm:-top-6",
-                    !isRtl ? "-right-16 sm:-right-20 md:-right-20" : "-left-16 sm:-left-20 md:-left-20",
+                    "absolute w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-24 bottom-0",
+                    !isRtl ? "-right-16 sm:-right-20 md:-right-20 transform rotate-130" : "-left-16 sm:-left-20 md:-left-20 ",
                   )}
                   aria-hidden
                 />
               </h2>
-              <p className="mt-4 text-base md:text-xl max-w-full">{subtitle}</p>
+              <p className="mt-4 text-base md:text-xl max-w-full text-(--text-secondary)">{subtitle}</p>
             </div>
-            <div className={cn("flex flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12", !isRtl ? "justify-start" : "justify-end")}>
+            <div className="flex flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12 justify-start">
               {stats.map((stat, index) => (
-                <div key={`${stat.value}-${index}`} className={cn("flex flex-col", !isRtl ? "items-start" : "items-end")}>
+                <div key={`${stat.value}-${index}`} className="flex flex-col items-start">
                   <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)">{stat.value}</span>
-                  <span className="text-xs sm:text-sm md:text-base lg:text-xl text-(--text-secondary) mt-1 text-right max-w-[200px] sm:max-w-[250px]">{stat.label}</span>
+                  <span
+                    className={cn(
+                      "text-xs sm:text-sm md:text-base lg:text-xl text-(--text-secondary) mt-1 max-w-[200px] sm:max-w-[250px]",
+                      isRtl ? "text-right" : "text-left",
+                    )}
+                  >
+                    {stat.label}
+                  </span>
                 </div>
               ))}
             </div>
-            <div className={cn("flex flex-wrap gap-3 sm:gap-4", isRtl && "flex-row-reverse justify-start")}>
+            <div className={cn("flex flex-wrap gap-3 sm:gap-4 justify-start", isRtl && "flex-row-reverse")}>
               <Button
                 asChild
                 className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl"
