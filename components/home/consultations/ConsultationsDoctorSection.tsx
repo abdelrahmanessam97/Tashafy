@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { DoctorItem } from "@/types/doctors";
+import type { consultationsDoctorItem } from "@/types/consultationsDoctor";
 import { Sparkles } from "lucide-react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,12 +16,12 @@ export type ConsultationsDoctorSectionProps = {
   subtitle: string;
   highlightTag: string;
   bookNowLabel: string;
-  doctors: DoctorItem[];
+  consultationsDoctors: consultationsDoctorItem[];
 };
 
 const paginationClass = "doctor-pagination";
 
-export function ConsultationsDoctorSection({ locale, title, subtitle, highlightTag, bookNowLabel, doctors }: ConsultationsDoctorSectionProps) {
+export function ConsultationsDoctorSection({ locale, title, subtitle, highlightTag, bookNowLabel, consultationsDoctors }: ConsultationsDoctorSectionProps) {
   const isRtl = locale === "ar";
 
   return (
@@ -44,15 +44,15 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
             <div className={cn("flex-1 flex flex-col")}>
               <div className={cn("flex items-start gap-4")}>
                 <div className="px-2 py-1 bg-rose-100 rounded-lg inline-flex items-center gap-1">
-                  <span className="text-xl font-medium text-rose-600 leading-8">{highlightTag}</span>
+                  <span className="text-xl font-medium text-(--text-rose) leading-8">{highlightTag}</span>
                 </div>
-                <Sparkles className="size-8 shrink-0 text-rose-600/80" aria-hidden />
+                <Sparkles className="size-7 shrink-0 text-(--text-rose)" aria-hidden />
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight max-w-[1056px]">{title}</h2>
               <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
             </div>
 
-            <Button variant="default" size="lg" className="shrink-0 w-48 h-11 rounded-lg px-5 text-base font-medium" asChild>
+            <Button variant="default" size="lg" className="shrink-0 w-48 h-11 rounded-lg px-5 text-base font-medium text-white" asChild>
               <a href="#book">{bookNowLabel}</a>
             </Button>
           </div>
@@ -66,7 +66,7 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
                 pagination={{
                   el: `.${paginationClass}`,
                   clickable: true,
-                  bulletClass: "inline-block !w-3 !h-3 !rounded-[50px] bg-primary/20 transition-all",
+                  bulletClass: "inline-block !w-3 !h-3 !rounded-[50px] bg-primary/20 transition-all cursor-pointer",
                   bulletActiveClass: "!w-6 !h-3 !rounded-[50px] !bg-primary shadow-[0px_1px_2px_0px_rgba(15,17,20,0.06)]",
                 }}
                 spaceBetween={20}
@@ -79,7 +79,7 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
                 }}
                 className="overflow-hidden!"
               >
-                {doctors.map((doctor, index) => (
+                {consultationsDoctors.map((doctor, index) => (
                   <SwiperSlide key={`${doctor.name}-${index}`}>
                     <ConsultationsDoctorCard doctor={doctor} isRtl={isRtl} />
                   </SwiperSlide>

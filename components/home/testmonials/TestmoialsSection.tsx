@@ -90,7 +90,7 @@ export function TestmoialsSection({ locale, title, subtitle, durationLabel, coun
             pagination={{
               el: ".testimonials-pagination",
               clickable: true,
-              bulletClass: "inline-block w-3 h-3 rounded-xl bg-primary/20 transition-all",
+              bulletClass: "inline-block w-3 h-3 rounded-xl bg-primary/20 transition-all cursor-pointer",
               bulletActiveClass: "!w-6 !h-3 !bg-primary rounded-full shadow-[0px_1px_2px_0px_rgba(15,17,20,0.06)]",
             }}
             spaceBetween={16}

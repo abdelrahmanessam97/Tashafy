@@ -18,8 +18,8 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
   return (
     <Card
       className={cn(
-        "relative h-full flex flex-col border-0 rounded-xl bg-white shadow-md overflow-hidden p-4",
-        program.bestSeller && "border-2 border-primary bg-primary/5",
+        "relative h-[600px] flex flex-col border-0 rounded-xl bg-white shadow-md overflow-hidden p-4 mt-6",
+        program.bestSeller && "border-2 border-primary bg-primary/5 h-[650px] mt-0 ",
       )}
     >
       {program.bestSeller && (
@@ -62,7 +62,7 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
         </div>
         <ul className="flex flex-col gap-2.5 text-base font-semibold text-(--text-secondary) leading-relaxed list-none items-start">
           {program.features.map((feature, i) => (
-            <li key={i} className={cn("flex gap-2 text-pretty wrap-break-word", isRtl && "flex-row-reverse")}>
+            <li key={i} className={cn("flex gap-2 text-pretty wrap-break-word")}>
               <BadgeCheck className="size-4 shrink-0 fill-primary text-white mt-0.5" aria-hidden />
               <span>{feature}</span>
             </li>

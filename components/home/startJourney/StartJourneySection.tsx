@@ -33,7 +33,10 @@ export const StartJourneySection = memo(function StartJourneySection({
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#F8F4FF] dark:bg-primary/5 py-16 md:py-20 [content-visibility:auto] [contain-intrinsic-size:auto_800px]"
+      className="relative w-full overflow-hidden py-16 md:py-20 [content-visibility:auto] [contain-intrinsic-size:auto_800px]"
+      style={{
+        background: "linear-gradient(180deg, #F8F4FF 0%, #F9FAFC 100%)",
+      }}
       dir={isRtl ? "rtl" : "ltr"}
     >
       <div className="relative w-[96%] mx-auto container-padding">

@@ -86,7 +86,7 @@ export function WhyChooseSection({
           </div>
 
           {/* Features card — order follows dir (right in RTL, left in LTR) */}
-          <Card className="order-2 lg:order-1 rounded-lg border border-[#e5e7eb] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden h-fit">
+          <Card className="order-2 lg:order-1 rounded-lg border-0 bg-[#F9FAFC] shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden h-fit">
             <CardContent className="p-5 sm:p-6 md:p-8 flex flex-col gap-5 sm:gap-6 md:gap-8">
               {features.map((feature, index) => {
                 const IconComponent = iconMap[feature.icon];

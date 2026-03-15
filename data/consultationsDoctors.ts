@@ -1,6 +1,6 @@
-import type { DoctorItem } from "@/types/doctors";
+import type { consultationsDoctorItem } from "@/types/consultationsDoctor";
 
-export function getDoctors(t: (key: string) => string): DoctorItem[] {
+export function getConsultationsDoctors(t: (key: string) => string): consultationsDoctorItem[] {
   return [
     {
       name: t("doctors.items.0.name"),

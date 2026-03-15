@@ -25,7 +25,7 @@ export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
 
           {/* Accordion column */}
           <div className="flex flex-col w-full">
-            <Accordion type="single" collapsible defaultValue="item-0" className="w-full">
+            <Accordion type="single" collapsible defaultValue="item-0" className="w-full border-t border-t-[#e5e7eb] ">
               {items.map((item, index) => (
                 <AccordionItem key={`${item.question}-${index}`} value={`item-${index}`} className="border-b border-[#e5e7eb] last:border-b-0">
                   <AccordionTrigger

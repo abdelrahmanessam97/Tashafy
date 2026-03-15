@@ -15,7 +15,10 @@ import { getPrograms } from "@/data/programs";
 import { getStartJourneySteps } from "@/data/recoveryJourney";
 import { getTestimonials } from "@/data/testimonials";
 import { getDestinations } from "@/data/destinations";
-import { getDoctors } from "@/data/doctors";
+import { getConsultationsDoctors } from "@/data/consultationsDoctors";
+import { getMedicalCenters } from "@/data/medicalCenters";
+import { getOurDoctors } from "@/data/ourDoctors";
+import { getSpecialties } from "@/data/specialties";
 
 const ServiceSection = dynamic(() => import("@/components/home/services/ServiceSection").then((m) => m.ServiceSection), { ssr: true });
 const StartJourneySection = dynamic(() => import("@/components/home/startJourney/StartJourneySection").then((m) => m.StartJourneySection), { ssr: true });
@@ -32,6 +35,9 @@ const DentistSection = dynamic(() => import("@/components/home/dentist/dentistSe
 const ConsultationsDoctorSection = dynamic(() => import("@/components/home/consultations/ConsultationsDoctorSection").then((m) => m.ConsultationsDoctorSection), {
   ssr: true,
 });
+const SpecialtiesSection = dynamic(() => import("@/components/home/specialties/SpecialtiesSection").then((m) => m.DoctorsSection), { ssr: true });
+const OurDoctorsSection = dynamic(() => import("@/components/home/ourDoctors/OurDoctorsSection").then((m) => m.OurDoctorsSection), { ssr: true });
+const MedicalCenterSection = dynamic(() => import("@/components/home/medicalCanter/MedicalCenterSection").then((m) => m.MedicalCenterSection), { ssr: true });
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -59,7 +65,10 @@ export default async function HomePage({ params }: Props) {
   const startJourneySteps = getStartJourneySteps(t);
   const testimonials = getTestimonials(t);
   const destinations = getDestinations(t);
-  const doctors = getDoctors(t);
+  const consultationsDoctors = getConsultationsDoctors(t);
+  const ourDoctors = getOurDoctors(t);
+  const medicalCenterCategories = getMedicalCenters(t);
+  const specialties = getSpecialties(t);
 
   return (
     <main className="flex flex-col items-center">
@@ -71,6 +80,52 @@ export default async function HomePage({ params }: Props) {
         searchPlaceholder={t("nav.searchPlaceholder")}
         loadingLabel={t("common.loading")}
       />
+
+      <ServiceSection locale={locale} title={t("services.title")} subtitle={t("services.subtitle")} services={services} learnMoreLabel={t("services.learnMore")} />
+
+      <OurStory locale={locale} title={t("ourStory.title")} subtitle={t("ourStory.subtitle")} stats={ourStoryStats} />
+
+      <MedicalCenterSection
+        locale={locale}
+        title={t("medicalCenters.title")}
+        subtitle={t("medicalCenters.subtitle")}
+        filterPlaceholder={t("medicalCenters.filterPlaceholder")}
+        startsFromLabel={t("medicalCenters.startsFrom")}
+        categories={medicalCenterCategories}
+      />
+
+      <ConsultationsDoctorSection
+        locale={locale}
+        title={t("doctors.title")}
+        subtitle={t("doctors.subtitle")}
+        highlightTag={t("doctors.highlightTag")}
+        bookNowLabel={t("doctors.bookNowLabel")}
+        consultationsDoctors={consultationsDoctors}
+      />
+
+      <ProgramsSection
+        locale={locale}
+        title={t("programs.title")}
+        subtitle={t("programs.subtitle")}
+        programs={programs}
+        bookLabel={t("programs.bookLabel")}
+        bestSellerLabel={t("programs.bestSeller")}
+      />
+
+      <DentistSection
+        locale={locale}
+        title={t("destinations.title")}
+        subtitle={t("destinations.subtitle")}
+        centersLabel={t("destinations.centersLabel")}
+        destinations={destinations}
+      />
+
+      <SpecialtiesSection locale={locale} title={t("specialties.title")} subtitle={t("specialties.subtitle")} specialties={specialties} />
+
+      <OurPartners locale={locale} title={t("partners.title")} subtitle={t("partners.subtitle")} partners={partners} />
+
+      <OurDoctorsSection locale={locale} title={t("ourDoctors.title")} subtitle={t("ourDoctors.subtitle")} doctors={ourDoctors} />
+
       <StartJourneySection
         locale={locale}
         title={t("recoveryJourney.title")}
@@ -81,16 +136,19 @@ export default async function HomePage({ params }: Props) {
         ctaButtonLabel={t("recoveryJourney.cta.button")}
         ctaButtonHref="https://wa.me/1234567890"
       />
-      <ServiceSection locale={locale} title={t("services.title")} subtitle={t("services.subtitle")} services={services} learnMoreLabel={t("services.learnMore")} />
-      <ProgramsSection
+      <TestmoialsSection
         locale={locale}
-        title={t("programs.title")}
-        subtitle={t("programs.subtitle")}
-        programs={programs}
-        bookLabel={t("programs.bookLabel")}
-        bestSellerLabel={t("programs.bestSeller")}
+        title={t("testimonials.title")}
+        subtitle={t("testimonials.subtitle")}
+        durationLabel={t("testimonials.durationLabel")}
+        countryLabel={t("testimonials.countryLabel")}
+        testimonials={testimonials}
       />
-      <OurPartners locale={locale} title={t("partners.title")} subtitle={t("partners.subtitle")} partners={partners} />
+
+      <Certificationssection locale={locale} title={t("certifications.title")} subtitle={t("certifications.subtitle")} certifications={certifications} />
+
+      <FeaturesBanner locale={locale} features={features} />
+
       <WhyChooseSection
         locale={locale}
         title={t("whyChoose.title")}
@@ -102,32 +160,7 @@ export default async function HomePage({ params }: Props) {
         ctaPrimaryHref={`/${locale}`}
         ctaSecondaryHref={`/${locale}`}
       />
-      <FeaturesBanner locale={locale} features={features} />
-      <ConsultationsDoctorSection
-        locale={locale}
-        title={t("doctors.title")}
-        subtitle={t("doctors.subtitle")}
-        highlightTag={t("doctors.highlightTag")}
-        bookNowLabel={t("doctors.bookNowLabel")}
-        doctors={doctors}
-      />
-      <DentistSection
-        locale={locale}
-        title={t("destinations.title")}
-        subtitle={t("destinations.subtitle")}
-        centersLabel={t("destinations.centersLabel")}
-        destinations={destinations}
-      />
-      <TestmoialsSection
-        locale={locale}
-        title={t("testimonials.title")}
-        subtitle={t("testimonials.subtitle")}
-        durationLabel={t("testimonials.durationLabel")}
-        countryLabel={t("testimonials.countryLabel")}
-        testimonials={testimonials}
-      />
-      <Certificationssection locale={locale} title={t("certifications.title")} subtitle={t("certifications.subtitle")} certifications={certifications} />
-      <FaqSection locale={locale} title={t("faq.title")} intro={t("faq.intro")} items={faqItems} />
+
       <LatestArticlesSection
         locale={locale}
         title={t("articles.title")}
@@ -137,7 +170,8 @@ export default async function HomePage({ params }: Props) {
         readMoreLabel={t("articles.readMore")}
         articles={articles}
       />
-      <OurStory locale={locale} title={t("ourStory.title")} subtitle={t("ourStory.subtitle")} stats={ourStoryStats} />
+
+      <FaqSection locale={locale} title={t("faq.title")} intro={t("faq.intro")} items={faqItems} />
     </main>
   );
 }

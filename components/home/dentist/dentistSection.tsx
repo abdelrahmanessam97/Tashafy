@@ -39,7 +39,21 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
             <Image src="/Dentist.svg" alt="" fill className="object-cover" sizes="64px" />
           </div> */}
           <div className={cn("flex flex-col gap-0.5 w-full text-start")}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight">{title}</h2>
+            <h2 className="max-w-[1056px] text-3xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl lg:leading-[56px]">
+              {title}
+              <span className="inline-block">
+                <Image
+                  className={cn("w-7 h-7 md:w-10 md:h-10 object-contain")}
+                  src="/dentist-highlight.svg"
+                  alt=""
+                  width={50}
+                  height={50}
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden
+                />
+              </span>
+            </h2>{" "}
             <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
           </div>
         </div>
@@ -68,7 +82,7 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
                 pagination={{
                   el: `.${paginationClass}`,
                   clickable: true,
-                  bulletClass: "inline-block w-3 h-3 rounded-xl bg-primary/20 transition-all",
+                  bulletClass: "inline-block w-3 h-3 rounded-xl bg-primary/20 transition-all cursor-pointer",
                   bulletActiveClass: "!w-6 !h-3 !bg-primary rounded-full shadow-[0px_1px_2px_0px_rgba(15,17,20,0.06)]",
                 }}
                 spaceBetween={20}
