@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { MedicalCenterItem } from "@/types/medicalCenter";
-import { MapPin, SaudiRiyal, SaudiRiyalIcon, Star } from "lucide-react";
+import { MapPin, SaudiRiyal, Star } from "lucide-react";
 import Image from "next/image";
 import { memo } from "react";
 

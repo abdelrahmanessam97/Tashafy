@@ -1,8 +1,5 @@
-import { CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { StartJourneyStep } from "@/types/recoveryJourney";
-import Link from "next/link";
 import Image from "next/image";
 import { memo } from "react";
 import { SectionContainer } from "@/components/shared/layout/SectionContainer";
@@ -86,13 +83,7 @@ export const StartJourneySection = memo(function StartJourneySection({
                 </div>
               ))}
 
-              <StartJourneyCtaCard
-                isRtl={isRtl}
-                ctaTitle={ctaTitle}
-                ctaSubtitle={ctaSubtitle}
-                ctaButtonLabel={ctaButtonLabel}
-                ctaButtonHref={ctaButtonHref}
-              />
+              <StartJourneyCtaCard isRtl={isRtl} ctaTitle={ctaTitle} ctaSubtitle={ctaSubtitle} ctaButtonLabel={ctaButtonLabel} ctaButtonHref={ctaButtonHref} />
             </div>
           </div>
         </div>
