@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import { DEFAULT_LOCALE, isValidLocale } from "@/lib/localization/i18n-config";
 import { getTranslations } from "@/lib/localization/i18n-server";
-import { Footer } from "@/components/shared/Footer";
+import { Footer } from "@/components/shared/footer/Footer";
 import { getNavAndFooterLabels } from "@/data/global";
 
 type Props = {

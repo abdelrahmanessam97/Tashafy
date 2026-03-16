@@ -17,9 +17,9 @@ export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
           {/* Header column: title + intro — aligns to start (right in RTL, left in LTR) */}
           <div className="flex flex-col gap-4 w-full">
-            <h2 className={cn("text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)", isRtl ? "text-right" : "text-left")}>{title}</h2>
+            <h2 className={cn("text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) ", isRtl ? "text-right" : "text-left")}>{title}</h2>
             {intro != null && intro.trim() !== "" && (
-              <p className={cn("mt-4 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{intro}</p>
+              <p className={cn("mt-4 text-base md:text-xl w-full max-w-[1000px]", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{intro}</p>
             )}
           </div>
 
@@ -30,13 +30,13 @@ export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
                 <AccordionItem key={`${item.question}-${index}`} value={`item-${index}`} className="border-b border-[#e5e7eb] last:border-b-0">
                   <AccordionTrigger
                     className={cn(
-                      "cursor-pointer py-5 text-base md:text-lg font-semibold text-(--text-primary) hover:no-underline [&[data-state=open]>svg]:rotate-180 gap-3",
+                      "cursor-pointer py-3 text-base md:text-lg font-semibold text-(--text-primary) hover:no-underline [&[data-state=open]>svg]:rotate-180 gap-3",
                       isRtl ? "flex-row-reverse text-right" : "text-left",
                     )}
                   >
                     <span className="flex-1 min-w-0 ">{item.question}</span>
                   </AccordionTrigger>
-                  <AccordionContent className={cn("pb-5 text-sm md:text-base text-(--text-secondary)  leading-relaxed", isRtl ? "text-right" : "text-left")}>
+                  <AccordionContent className={cn("pb-3 text-sm md:text-base text-(--text-secondary)  leading-relaxed", isRtl ? "text-right" : "text-left")}>
                     {item.answer}
                   </AccordionContent>
                 </AccordionItem>

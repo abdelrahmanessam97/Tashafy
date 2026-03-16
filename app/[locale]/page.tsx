@@ -24,7 +24,7 @@ const ServiceSection = dynamic(() => import("@/components/home/services/ServiceS
 const StartJourneySection = dynamic(() => import("@/components/home/startJourney/StartJourneySection").then((m) => m.StartJourneySection), { ssr: true });
 const ProgramsSection = dynamic(() => import("@/components/home/programs/ProgramsSection").then((m) => m.ProgramsSection), { ssr: true });
 const LatestArticlesSection = dynamic(() => import("@/components/home/artical/LatestArticlesSection").then((m) => m.LatestArticlesSection), { ssr: true });
-const WhyChooseSection = dynamic(() => import("@/components/home/WhyChooseSection").then((m) => m.WhyChooseSection), { ssr: true });
+const WhyChooseSection = dynamic(() => import("@/components/home/WhyChooseMe/WhyChooseSection").then((m) => m.WhyChooseSection), { ssr: true });
 const OurPartners = dynamic(() => import("@/components/home/partners/Partners").then((m) => m.Partners), { ssr: true });
 const FeaturesBanner = dynamic(() => import("@/components/home/features/FeaturesBanner").then((m) => m.FeaturesBanner), { ssr: true });
 const Certificationssection = dynamic(() => import("@/components/home/certifications/Certificationssection").then((m) => m.Certificationssection), { ssr: true });
@@ -136,6 +136,7 @@ export default async function HomePage({ params }: Props) {
         ctaButtonLabel={t("recoveryJourney.cta.button")}
         ctaButtonHref="https://wa.me/1234567890"
       />
+      
       <TestmoialsSection
         locale={locale}
         title={t("testimonials.title")}

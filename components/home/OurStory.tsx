@@ -30,12 +30,12 @@ export const OurStory = memo(function OurStory({ locale, title, subtitle, stats 
                 alt="Our Story"
                 width={86}
                 height={60}
-                className={cn("absolute bottom-5 mb-3 w-14 h-auto md:w-20 transform-3d", isRtl ? "-right-12" : "-left-12 transform-[rotateY(180deg)]")}
+                className={cn("absolute bottom-10 sm:bottom-5 mb-3 w-14 h-auto md:w-20 transform-3d", isRtl ? "-right-12" : "-left-12 transform-[rotateY(180deg)]")}
                 loading="lazy"
                 decoding="async"
                 aria-hidden
               />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#1A2B5B] mb-3 leading-tight">{title}</h2>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-[#1A2B5B] mb-3">{title}</h2>
             </div>
             <p className="mt-4 text-base md:text-xl max-w-full text-(--text-secondary)">{subtitle}</p>
           </div>

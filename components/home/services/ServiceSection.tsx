@@ -28,8 +28,8 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
       <div className="relative w-[96%] mx-auto container-padding">
         <div className="">
           <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
-              {title}
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
+              {title} 
               <Image
                 className="ms-auto"
                 src="/title-highlight.svg"
@@ -43,13 +43,15 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
               />
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p className={cn("mt-8 text-base md:text-xl max-w-full", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
+              <p
+                className={cn("mt-8 text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}
+              >
                 {subtitle}
               </p>
             )}
           </div>
 
-          <div className="grid grid-cols-1  lg:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service) => (
               <ServiceCard key={service.href} service={service} learnMoreLabel={learnMoreLabel} isRtl={isRtl} />
             ))}

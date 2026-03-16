@@ -15,11 +15,11 @@ export function Certificationssection({ locale, title, subtitle, certifications 
   return (
     <section className="relative w-full overflow-hidden py-16 md:py-24" dir={isRtl ? "rtl" : "ltr"}>
       <div className="relative w-[96%] mx-auto container-padding">
-        <header className={cn("mb-12 md:mb-16", isRtl ? "text-right" : "text-left")}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
+        <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
             {title}
             <Image
-              className="ms-auto"
+              className="md:ms-auto ms-0"
               src="/title-highlight.svg"
               alt="title highlight"
               width={200}
@@ -31,9 +31,11 @@ export function Certificationssection({ locale, title, subtitle, certifications 
             />
           </h2>
           {subtitle != null && subtitle.trim() !== "" && (
-            <p className={cn("mt-6 text-base md:text-xl max-w-full", "text-(--text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
+            <p className={cn("mt-4 md:mt-8 text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
+              {subtitle}
+            </p>
           )}
-        </header>
+        </div>
 
         <div className="flex flex-wrap justify-center gap-4 md:gap-6">
           {certifications.map((certification, index) => (

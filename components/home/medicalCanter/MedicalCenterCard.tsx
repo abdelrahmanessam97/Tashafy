@@ -39,7 +39,7 @@ export const MedicalCenterCard = memo(function MedicalCenterCard({ center, isRtl
                 </div>
               </div>
               <div className={cn("flex items-center gap-1 text-xs font-base leading-4 text-(--text-secondary)")}>
-                <MapPin className="size-4 shrink-0 text-(--text-secondary)" aria-hidden />
+                <MapPin className="size-4 mb-1 shrink-0 text-(--text-secondary)" aria-hidden />
                 <span className="truncate">{center.location}</span>
               </div>
             </div>

@@ -29,12 +29,12 @@ export function TestmoialsSection({ locale, title, subtitle, durationLabel, coun
       aria-label={title}
     >
       <div className="relative w-[96%] mx-auto container-padding">
-        {/* Top row: title + quote (start side) | description + nav + pagination (end side) */}
-        <div className="flex flex-col gap-8 lg:gap-4 mb-12 md:mb-16 lg:flex-row lg:items-center lg:justify-end">
-          <div className={cn("flex-1 flex flex-col gap-3", !isRtl ? "items-end text-right" : "items-start text-left")}>
-            <div className={cn("flex items-center gap-4 sm:gap-6")}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight text-start w-full md:max-w-60 ltr:max-w-[75%]">{title}</h2>
-              <div className="shrink-0 w-8 h-8 flex items-start justify-start gap-2 text-destructive/30" aria-hidden>
+        {/* Top row: title + quote | description + nav + pagination */}
+        <div className="flex flex-col gap-8 lg:gap-4 mb-12 md:mb-16 lg:flex-row lg:items-start">
+          <div className={cn("flex-1 flex flex-col gap-3")}>
+            <h2 className="flex items-center gap-2 text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight text-start w-full md:max-w-70 ltr:max-w-[75%]">
+              {title}
+              <div className="shrink-0 w-8 h-8 flex items-center gap-2 text-destructive/30" aria-hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="31" viewBox="0 0 19 31" fill="none">
                   <path
                     d="M1.67737 13.0527H15.4899C15.9208 13.0527 16.3342 13.2239 16.6389 13.5287C16.9437 13.8334 17.1149 14.2468 17.1149 14.6777V27.6777C17.1149 28.1087 16.9437 28.522 16.6389 28.8268C16.3342 29.1315 15.9208 29.3027 15.4899 29.3027H3.30237C2.87139 29.3027 2.45807 29.1315 2.15332 28.8268C1.84857 28.522 1.67737 28.1087 1.67737 27.6777V9.80273C1.67737 7.64785 2.53339 5.58122 4.05713 4.05749C5.58086 2.53376 7.64748 1.67773 9.80237 1.67773"
@@ -54,10 +54,10 @@ export function TestmoialsSection({ locale, title, subtitle, durationLabel, coun
                   />
                 </svg>
               </div>
-            </div>
+            </h2>
           </div>
-          <div className={cn("px-8 flex-1 max-w-[652px] w-full", isRtl ? "text-right" : "text-left")}>
-            <p className={cn("text-base font-medium text-(--text-secondary) leading-6", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
+          <div className={cn("px-2 md:px-8 flex-1 max-w-[652px] w-full", isRtl ? "items-end justify-end text-right" : "items-start justify-start text-left")}>
+            <p className={cn("text-base font-medium text-(--text-secondary) leading-6 w-full max-w-[1000px]", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
             <div className={cn("flex justify-center gap-5 mt-4 w-50")}>
               <button
                 type="button"

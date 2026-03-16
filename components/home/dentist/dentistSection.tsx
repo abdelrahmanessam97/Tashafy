@@ -35,11 +35,8 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
       <div className="relative w-[96%] mx-auto container-padding">
         {/* Header: decorative icon + title block; RTL: group on right, LTR: group on left */}
         <div className={cn("flex items-center gap-4 mb-12 md:mb-16", isRtl ? "justify-end flex-row-reverse" : "justify-start")}>
-          {/* <div className="w-16 h-16 shrink-0 rounded-lg overflow-hidden relative border-2 border-destructive/80 bg-background outline-2 -outline-offset-1 outline-destructive/60 outline">
-            <Image src="/Dentist.svg" alt="" fill className="object-cover" sizes="64px" />
-          </div> */}
           <div className={cn("flex flex-col gap-0.5 w-full text-start")}>
-            <h2 className="max-w-[1056px] text-3xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl lg:leading-[56px]">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-(--text-brand)">
               {title}
               <span className="inline-block">
                 <Image
@@ -53,8 +50,8 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
                   aria-hidden
                 />
               </span>
-            </h2>{" "}
-            <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
+            </h2>
+            <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
           </div>
         </div>
 

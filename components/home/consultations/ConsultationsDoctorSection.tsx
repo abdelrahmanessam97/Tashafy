@@ -41,15 +41,20 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
         {/* Header: Book Now button + text block (highlight tag, title, subtitle) */}
         <div className="flex flex-col gap-12">
           <div className={cn("w-full flex flex-col lg:flex-row justify-end items-center gap-4")}>
-            <div className={cn("flex-1 flex flex-col")}>
+            <div className={cn("flex-1 flex flex-col gap-4 ")}>
               <div className={cn("flex items-start gap-4")}>
                 <div className="px-2 py-1 bg-rose-100 rounded-lg inline-flex items-center gap-1">
                   <span className="text-xl font-medium text-(--text-rose) leading-8">{highlightTag}</span>
                 </div>
                 <Sparkles className="size-7 shrink-0 text-(--text-rose)" aria-hidden />
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight max-w-[1056px]">{title}</h2>
-              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
+              <h2 
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight max-w-[1056px]
+              "
+              >
+                {title}
+              </h2>
+              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
             </div>
 
             <Button variant="default" size="lg" className="shrink-0 w-48 h-11 rounded-lg px-5 text-base font-medium text-white" asChild>

@@ -43,7 +43,7 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
         <div className="flex flex-col gap-12">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8 w-full">
             <div className={cn("flex flex-col gap-0.5 flex-1 min-w-0")}>
-              <h2 className="max-w-[1056px] text-3xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl lg:leading-[56px]">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-(--text-brand)">
                 {title}
                 <span className="inline-block">
                   <Image
@@ -58,7 +58,7 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
                   />
                 </span>
               </h2>
-              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
+              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
             </div>
             <div className={cn("flex justify-start items-center gap-6 shrink-0")}>
               <button

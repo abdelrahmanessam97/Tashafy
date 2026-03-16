@@ -39,7 +39,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
           {/* Header: title + subtitle | nav (prev, pagination, next) — RTL: title right, nav left */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6 w-full">
             <div className={cn("flex flex-col gap-0.5 flex-1 min-w-0 relative")}>
-              <h2 className="max-w-[1056px] text-3xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl lg:leading-[56px]">
+              <h2 className="text-2xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl">
                 {title}
                 <span className="inline-block">
                   <Image
@@ -54,7 +54,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
                   />
                 </span>
               </h2>
-              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8">{subtitle}</p>
+              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
             </div>
             <div className={cn("flex justify-start items-center gap-6 shrink-0", isRtl && "flex-row-reverse")}>
               <button
@@ -65,7 +65,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >
-                {isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+                {!isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
               </button>
               <div className={cn(paginationClass, "flex justify-start items-center gap-2.5")} />
               <button
@@ -76,7 +76,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >
-                {isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+                {!isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
               </button>
             </div>
           </div>

@@ -16,7 +16,7 @@ type MainSectionProps = {
 export default function MainSection({ locale, labels, motto, heading, searchPlaceholder, loadingLabel }: MainSectionProps) {
   return (
     <section className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start container-margin scroll-smooth">
-      <div className="sticky top-2 z-50 w-[96%] mx-auto container-padding shrink-0">
+      <div className="sticky top-2 z-50 sm:w-[96%] w-full mx-auto container-padding shrink-0">
         <Navbar locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} loadingLabel={loadingLabel} />
       </div>
 

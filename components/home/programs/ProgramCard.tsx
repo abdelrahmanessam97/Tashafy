@@ -18,7 +18,7 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
   return (
     <Card
       className={cn(
-        "relative h-[600px] flex flex-col border-0 rounded-xl bg-white shadow-md overflow-hidden p-4 mt-6",
+        "relative min-h-[600px] flex flex-col border-0 rounded-xl bg-white shadow-md overflow-hidden p-4 mt-6",
         program.bestSeller && "border-2 border-primary bg-primary/5 h-[650px] mt-0 ",
       )}
     >
@@ -50,6 +50,7 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
         {/* Pink/red gradient overlay at bottom of image fading into white */}
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-[linear-gradient(4.16deg,rgba(239,39,82,0.6)_3.39%,rgba(239,39,82,0)_50%)]" aria-hidden />
       </div>
+
       <CardContent className={cn("flex flex-col flex-1 p-5 md:p-6 gap-3", isRtl ? "text-right" : "text-left")}>
         <h3 className="text-lg md:text-xl font-bold text-(--text-rose)">{program.title}</h3>
         <p className="text-2xl md:text-3xl font-bold text-(--text-brand) flex items-center gap-1">
