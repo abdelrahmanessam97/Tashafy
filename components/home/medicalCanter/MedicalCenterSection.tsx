@@ -1,4 +1,5 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import type { MedicalCenterCategory } from "@/types/medicalCenter";
 import { MedicalCenterCard } from "./MedicalCenterCard";
@@ -22,7 +23,7 @@ export function MedicalCenterSection({ locale, title, subtitle, filterPlaceholde
       dir={isRtl ? "rtl" : "ltr"}
       aria-label={title}
     >
-      <div className="relative w-[96%] mx-auto container-padding flex flex-col items-center gap-12">
+      <SectionContainer className="relative flex flex-col items-center gap-12">
         <div className={cn("flex w-full flex-col gap-4 lg:flex-row lg:items-center lg:justify-end")}>
           <div className={cn("relative flex-1 min-w-0", isRtl ? "text-right" : "text-left")}>
             <h2 className="text-2xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl">
@@ -78,7 +79,7 @@ export function MedicalCenterSection({ locale, title, subtitle, filterPlaceholde
             </div>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

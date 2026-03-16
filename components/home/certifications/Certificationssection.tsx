@@ -1,4 +1,5 @@
 import { CertificationCard } from "@/components/home/certifications/CertificationCard";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import type { CertificationItem } from "@/types/certifications";
 import Image from "next/image";
@@ -14,7 +15,7 @@ export function Certificationssection({ locale, title, subtitle, certifications 
 
   return (
     <section className="relative w-full overflow-hidden py-16 md:py-24" dir={isRtl ? "rtl" : "ltr"}>
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
             {title}
@@ -44,7 +45,7 @@ export function Certificationssection({ locale, title, subtitle, certifications 
             </div>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

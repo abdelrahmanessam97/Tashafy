@@ -5,6 +5,7 @@ import type { StartJourneyStep } from "@/types/recoveryJourney";
 import Link from "next/link";
 import Image from "next/image";
 import { memo } from "react";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { StepCard } from "./StepCard";
 import { StepConnector } from "./StepConnector";
 import { StartJourneyCtaCard } from "./StartJourneyCtaCard";
@@ -40,7 +41,7 @@ export const StartJourneySection = memo(function StartJourneySection({
       }}
       dir={isRtl ? "rtl" : "ltr"}
     >
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className="">
           <div className={isRtl ? "text-right" : "text-left"}>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
@@ -95,7 +96,7 @@ export const StartJourneySection = memo(function StartJourneySection({
             </div>
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 });

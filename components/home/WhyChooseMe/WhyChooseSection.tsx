@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import type { WhyChooseFeature, WhyChooseStat } from "@/types/whyChoose";
 import Link from "next/link";
@@ -36,7 +37,7 @@ export function WhyChooseSection({
       dir={isRtl ? "rtl" : "ltr"}
       aria-label={title}
     >
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-stretch">
           {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
           <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start space-y-10")}>
@@ -93,7 +94,7 @@ export function WhyChooseSection({
             </CardContent>
           </Card>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

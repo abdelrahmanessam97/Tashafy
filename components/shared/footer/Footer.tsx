@@ -1,4 +1,5 @@
 import { FOOTER_ABOUT_LINKS, FOOTER_LEGAL_LINKS, FOOTER_MAIN_LINKS } from "@/data/global";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import type { FooterProps } from "@/types/global";
 import Image from "next/image";
@@ -18,8 +19,8 @@ export function Footer({ locale, labels }: FooterProps) {
       role="contentinfo"
       dir={isRtl ? "rtl" : "ltr"}
     >
-      <div className="w-[96%] mx-auto container-padding">
-        <div className="padding-x pt-16 pb-6">
+      <SectionContainer>
+        <div className="pt-16 pb-6">
           <div className="grid gap-10 lg:grid-cols-[1fr_auto_auto_auto_auto] lg:gap-8">
             {/* Brand column: logo + tagline */}
             <div className="flex max-w-sm flex-col lg:max-w-xs">
@@ -69,7 +70,7 @@ export function Footer({ locale, labels }: FooterProps) {
             </div>
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </footer>
   );
 }

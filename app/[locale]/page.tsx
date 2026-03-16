@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import MainSection from "@/components/home/MainSection";
+import { StickyNavbar } from "@/components/shared/navbar/StickyNavbar";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { getNavAndFooterLabels } from "@/data/global";
 import { getOurServices } from "@/data/ourServices";
@@ -81,6 +82,8 @@ export default async function HomePage({ params }: Props) {
         loadingLabel={t("common.loading")}
       />
 
+      <StickyNavbar locale={locale} labels={labels} searchPlaceholder={t("nav.searchPlaceholder")} loadingLabel={t("common.loading")} />
+
       <ServiceSection locale={locale} title={t("services.title")} subtitle={t("services.subtitle")} services={services} learnMoreLabel={t("services.learnMore")} />
 
       <OurStory locale={locale} title={t("ourStory.title")} subtitle={t("ourStory.subtitle")} stats={ourStoryStats} />
@@ -136,7 +139,7 @@ export default async function HomePage({ params }: Props) {
         ctaButtonLabel={t("recoveryJourney.cta.button")}
         ctaButtonHref="https://wa.me/1234567890"
       />
-      
+
       <TestmoialsSection
         locale={locale}
         title={t("testimonials.title")}

@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { OurDoctorsCard } from "./OurDoctorsCard";
 import Image from "next/image";
 
@@ -34,7 +35,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
       dir={isRtl ? "rtl" : "ltr"}
       aria-label={title}
     >
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className="flex flex-col gap-12">
           {/* Header: title + subtitle | nav (prev, pagination, next) — RTL: title right, nav left */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6 w-full">
@@ -113,7 +114,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
             </Swiper>
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

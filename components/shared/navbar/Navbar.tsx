@@ -2,8 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import { NAV_ITEMS } from "@/data/global";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
-import type { NavbarProps } from "@/types/global";
+import type { NavLabels } from "@/types/global";
 import { ChevronLeft, ChevronRight, Menu, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,7 +13,17 @@ import { memo, useCallback, useMemo, useState } from "react";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 import { MobileMenuDrawer } from "./MobileMenuDrawer";
 
-const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loadingLabel }: NavbarProps) {
+export type NavbarProps = {
+  locale: string;
+  labels: NavLabels;
+  searchPlaceholder?: string;
+  loadingLabel?: string;
+  className?: string;
+  /** "dark" = light text (hero), "light" = dark text (sticky on white) */
+  variant?: "dark" | "light";
+};
+
+const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loadingLabel, className, variant = "dark" }: NavbarProps) {
   const pathname = usePathname();
   const localePrefix = `/${locale}`;
   const isRtl = locale === "ar";
@@ -39,25 +50,34 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
     [localePrefix, labels.freeConsultation, isRtl],
   );
 
+  const isLight = variant === "light";
   const navLinks = useMemo(
     () =>
       NAV_ITEMS.map(({ key, path }) => {
         const href = path ? `${localePrefix}${path}` : localePrefix;
         const active = isActive(path);
         return (
-          <Link key={key} href={href} className={cn("relative px-3 py-2 text-sm font-medium text-white transition-colors hover:text-white/90", active && "text-white")}>
+          <Link
+            key={key}
+            href={href}
+            className={cn(
+              "relative px-3 py-2 text-sm font-medium transition-colors",
+              isLight ? "text-(--text-primary) hover:text-(--text-primary)/90" : "text-white hover:text-white/90",
+              active && (isLight ? "text-(--text-brand)" : "text-white"),
+            )}
+          >
             {labels[key]}
             {active && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary" aria-hidden />}
           </Link>
         );
       }),
-    [localePrefix, labels, isActive],
+    [localePrefix, labels, isActive, isLight],
   );
 
   return (
     <>
-      <header className="w-full navbar mx-auto" dir={isRtl ? "rtl" : "ltr"}>
-        <div className="flex h-14 items-center justify-between gap-4 container-padding min-w-0">
+      <header className={cn("w-full mx-auto", className)} dir={isRtl ? "rtl" : "ltr"}>
+        <SectionContainer className="flex h-14 items-center justify-between gap-4 min-w-0">
           <div className="flex flex-1 items-center justify-between gap-4 min-w-0 md:justify-start md:gap-8">
             <Link href={localePrefix || "/"} className={cn("flex shrink-0 flex-col gap-0 leading-tight", isRtl ? "items-end" : "items-start")} aria-label="Tashafy Home">
               <Image src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} width={100} height={100} className="w-25 h-25" alt="Tashafy Logo" loading="eager" />
@@ -66,7 +86,10 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
               <span className="flex shrink-0">{ctaButton}</span>
               <button
                 type="button"
-                className="flex size-9 shrink-0 items-center justify-center rounded-md text-white/80 transition-colors hover:bg-white/10 hover:text-white cursor-pointer"
+                className={cn(
+                  "flex size-9 shrink-0 items-center justify-center rounded-md transition-colors cursor-pointer",
+                  isLight ? "text-(--text-secondary) hover:bg-black/5 hover:text-(--text-primary)" : "text-white/80 hover:bg-white/10 hover:text-white",
+                )}
                 aria-label="Open menu"
                 aria-expanded={mobileMenuOpen}
                 onClick={() => setMobileMenuOpen(true)}
@@ -80,7 +103,10 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
 
               <button
                 type="button"
-                className="ml-auto hidden xl:flex size-9 items-center justify-center rounded-md text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+                className={cn(
+                  "ml-auto hidden xl:flex size-9 items-center justify-center rounded-md transition-colors",
+                  isLight ? "text-(--text-secondary) hover:bg-black/5 hover:text-(--text-primary)" : "text-white/80 hover:bg-white/10 hover:text-white",
+                )}
                 aria-label="Search"
               >
                 <Search className="size-5" />
@@ -89,10 +115,10 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
           </div>
 
           <div className="hidden xl:flex shrink-0 items-center gap-2 sm:gap-3">
-            <LocaleSwitcher locale={locale} loadingLabel={loadingLabel} />
+            <LocaleSwitcher locale={locale} loadingLabel={loadingLabel} variant={variant} />
             {ctaButton}
           </div>
-        </div>
+        </SectionContainer>
       </header>
 
       <MobileMenuDrawer

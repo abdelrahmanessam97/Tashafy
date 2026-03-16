@@ -1,3 +1,4 @@
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import type { ArticleItem } from "@/types/articles";
 import Link from "next/link";
@@ -19,7 +20,7 @@ export function LatestArticlesSection({ locale, title, subtitle, viewAllLabel, v
 
   return (
     <section className="relative w-full overflow-hidden bg-[##F9FAFC] py-12 md:py-16 lg:py-24" dir={isRtl ? "rtl" : "ltr"}>
-      <div className="relative w-full max-w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         {/* Header row: title + subtitle on one side, View All button on the other */}
         <header className="flex flex-wrap items-start justify-between gap-6 mb-10 md:mb-14">
           <div className={cn("flex flex-col gap-1", isRtl ? " text-right" : "text-left")}>
@@ -36,7 +37,7 @@ export function LatestArticlesSection({ locale, title, subtitle, viewAllLabel, v
             <ArticleCard key={`${article.title}-${index}`} article={article} readMoreLabel={readMoreLabel} isRtl={isRtl} />
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

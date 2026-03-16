@@ -3,6 +3,7 @@ import type { ServiceItem } from "@/types/ourServices";
 import Image from "next/image";
 import { memo } from "react";
 import { ServiceCard } from "./ServiceCard";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 
 type OurServiceProps = {
   locale: string;
@@ -25,7 +26,7 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
         )}
         aria-hidden
       />
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className="">
           <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
@@ -57,7 +58,7 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
             ))}
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 });

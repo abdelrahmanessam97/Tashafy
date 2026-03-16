@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { TestmoialsCard } from "./TestmoialsCard";
 
 export type TestmoialsSectionProps = {
@@ -28,7 +29,7 @@ export function TestmoialsSection({ locale, title, subtitle, durationLabel, coun
       dir={isRtl ? "rtl" : "ltr"}
       aria-label={title}
     >
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         {/* Top row: title + quote | description + nav + pagination */}
         <div className="flex flex-col gap-8 lg:gap-4 mb-12 md:mb-16 lg:flex-row lg:items-start">
           <div className={cn("flex-1 flex flex-col gap-3")}>
@@ -110,7 +111,7 @@ export function TestmoialsSection({ locale, title, subtitle, durationLabel, coun
             ))}
           </Swiper>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

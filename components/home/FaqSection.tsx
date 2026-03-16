@@ -1,3 +1,4 @@
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../ui/accordion";
 import { FaqItem } from "@/types/faq";
@@ -13,7 +14,7 @@ export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
 
   return (
     <section className="relative w-full overflow-hidden py-12 md:py-16 lg:py-24" dir={isRtl ? "rtl" : "ltr"}>
-      <div className="relative w-full max-w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-14 items-start">
           {/* Header column: title + intro — aligns to start (right in RTL, left in LTR) */}
           <div className="flex flex-col gap-4 w-full">
@@ -44,7 +45,7 @@ export function FaqSection({ locale, title, intro, items }: FaqSectionProps) {
             </Accordion>
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

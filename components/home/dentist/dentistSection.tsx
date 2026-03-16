@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { DentistCard } from "./dentistCard";
 
 export type DentistSectionProps = {
@@ -32,7 +33,7 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
       dir={isRtl ? "rtl" : "ltr"}
       aria-label={title}
     >
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         {/* Header: decorative icon + title block; RTL: group on right, LTR: group on left */}
         <div className={cn("flex items-center gap-4 mb-12 md:mb-16", isRtl ? "justify-end flex-row-reverse" : "justify-start")}>
           <div className={cn("flex flex-col gap-0.5 w-full text-start")}>
@@ -112,7 +113,7 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
           </div>
           <div className={cn(paginationClass, "inline-flex justify-center items-center gap-2.5")} />
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

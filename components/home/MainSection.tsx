@@ -1,4 +1,5 @@
 import { Input } from "@/components/ui/input";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { NavLabels } from "@/types/global";
 import { Search } from "lucide-react";
 import Image from "next/image";
@@ -15,9 +16,9 @@ type MainSectionProps = {
 
 export default function MainSection({ locale, labels, motto, heading, searchPlaceholder, loadingLabel }: MainSectionProps) {
   return (
-    <section className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start container-margin scroll-smooth">
-      <div className="sticky top-2 z-50 sm:w-[96%] w-full mx-auto container-padding shrink-0">
-        <Navbar locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} loadingLabel={loadingLabel} />
+    <section id="main-section" className="relative z-50 w-full min-h-screen flex flex-col items-center justify-start container-margin scroll-smooth">
+      <div className="z-50 px-4 sm:px-0 sm:w-[96%] w-full mx-auto shrink-0">
+        <Navbar className="navbar" locale={locale} labels={labels} searchPlaceholder={searchPlaceholder} loadingLabel={loadingLabel} />
       </div>
 
       <div className="container overflow-hidden flex-1 min-h-0 w-full">
@@ -42,7 +43,7 @@ export default function MainSection({ locale, labels, motto, heading, searchPlac
 
         {/* Content */}
         <div className="relative z-10 w-[99%] mx-auto rounded-4xl flex flex-col min-h-[840px]">
-          <div className="flex flex-1 flex-col items-center justify-center text-center padding-x py-16">
+          <SectionContainer className="flex flex-1 flex-col items-center justify-center text-center py-16">
             <p className="text-white/95 text-lg md:text-xl font-medium mb-3">{motto}</p>
             <div className="my-4">
               <Image src="/Vector.svg" className="w-full h-full" alt="Vector" width={90} height={80} priority fetchPriority="high" />
@@ -57,7 +58,7 @@ export default function MainSection({ locale, labels, motto, heading, searchPlac
                 className="h-12 w-full bg-[rgba(0, 0, 0, 0.48)] border-(--borderBrandSecondary) shadow-[0_1px_2px_0_rgba(17,24,39,0.05)] rounded-xl py-4 ps-12 pe-4 text-white placeholder:text-white/60 text-base"
               />
             </div>
-          </div>
+          </SectionContainer>
         </div>
       </div>
     </section>

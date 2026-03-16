@@ -8,6 +8,7 @@ import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { ConsultationsDoctorCard } from "./ConsultationsDoctorCard";
 
 export type ConsultationsDoctorSectionProps = {
@@ -37,7 +38,7 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
         )}
         aria-hidden
       />
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         {/* Header: Book Now button + text block (highlight tag, title, subtitle) */}
         <div className="flex flex-col gap-12">
           <div className={cn("w-full flex flex-col lg:flex-row justify-end items-center gap-4")}>
@@ -94,7 +95,7 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
             {/* <div className={cn(paginationClass, "inline-flex justify-center items-center gap-2.5")} /> */}
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import type { PartnerItem } from "@/types/ourPartners";
 import Image from "next/image";
 import { PartnerCard } from "./PartnerCard";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 
 type PartnersProps = {
   locale: string;
@@ -16,7 +17,7 @@ export function Partners({ locale, title, subtitle, partners }: PartnersProps) {
 
   return (
     <section className="relative w-full overflow-hidden bg-muted/40 py-16 md:py-24" dir={isRtl ? "rtl" : "ltr"}>
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className={cn("mb-12 md:mb-16", isRtl ? "text-right" : "text-left")}>
           <h2 className="relative text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) inline-flex items-center gap-2 flex-wrap">
             <Image
@@ -41,7 +42,7 @@ export function Partners({ locale, title, subtitle, partners }: PartnersProps) {
             </div>
           ))}
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 }

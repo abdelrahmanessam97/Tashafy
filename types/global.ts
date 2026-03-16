@@ -12,13 +12,6 @@ export type NavLabels = {
 
 export type NavItem = { key: keyof NavLabels; path: string };
 
-export type NavbarProps = {
-  locale: string;
-  labels: NavLabels;
-  searchPlaceholder?: string;
-  loadingLabel?: string;
-};
-
 /** Footer label keys and link item type */
 export type FooterLabels = {
   tagline: string;

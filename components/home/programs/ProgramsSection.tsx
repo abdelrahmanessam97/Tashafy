@@ -3,6 +3,7 @@ import type { ProgramItem } from "@/types/programs";
 import Image from "next/image";
 import { memo } from "react";
 import { ProgramCard } from "./ProgramCard";
+import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 
 type ProgramsSectionProps = {
   locale: string;
@@ -20,7 +21,7 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
       className="relative w-full overflow-hidden bg-muted/30 py-16 md:py-24 [content-visibility:auto] [contain-intrinsic-size:auto_800px]"
       dir={isRtl ? "rtl" : "ltr"}
     >
-      <div className="relative w-[96%] mx-auto container-padding">
+      <SectionContainer className="relative">
         <div className="flex flex-col gap-6">
           <div className={cn("relative flex-1 min-w-0", isRtl ? "text-right" : "text-left")}>
             <h2 className="text-2xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl">
@@ -47,7 +48,7 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
             ))}
           </div>
         </div>
-      </div>
+      </SectionContainer>
     </section>
   );
 });
