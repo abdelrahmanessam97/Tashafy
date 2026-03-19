@@ -61,14 +61,15 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
           <div className="flex items-center gap-3 sm:gap-4 w-full">
             <button
               type="button"
-              aria-label={isRtl ? "Next" : "Previous"}
+              aria-label={isRtl ? "Previous" : "Next"}
               className={cn(
-                navPrevClass,
-                "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10 relative",
+                navNextClass,
+                "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
               )}
             >
               {isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
             </button>
+
             <div className="flex-1 min-w-0 overflow-hidden relative">
               <Swiper
                 dir={isRtl ? "rtl" : "ltr"}
@@ -102,10 +103,10 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
             </div>
             <button
               type="button"
-              aria-label={isRtl ? "Previous" : "Next"}
+              aria-label={isRtl ? "Next" : "Previous"}
               className={cn(
-                navNextClass,
-                "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10 relative",
+                navPrevClass,
+                "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
               )}
             >
               {isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}

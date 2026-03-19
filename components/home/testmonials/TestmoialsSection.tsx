@@ -62,16 +62,22 @@ export function TestmoialsSection({ locale, title, subtitle, durationLabel, coun
             <div className={cn("flex justify-center gap-5 mt-4 w-50")}>
               <button
                 type="button"
-                aria-label={isRtl ? "Next" : "Previous"}
-                className={`${navPrevClass} p-3 cursor-pointer rounded-3xl bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity`}
+                aria-label={isRtl ? "Previous" : "Next"}
+                className={cn(
+                  navNextClass,
+                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
+                )}
               >
                 {isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
               </button>
               <div className="testimonials-pagination flex justify-center items-center gap-2.5 " />
               <button
                 type="button"
-                aria-label={isRtl ? "Previous" : "Next"}
-                className={`${navNextClass} p-3 cursor-pointer rounded-3xl bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity`}
+                aria-label={isRtl ? "Next" : "Previous"}
+                className={cn(
+                  navPrevClass,
+                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
+                )}
               >
                 {isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
               </button>

@@ -52,7 +52,7 @@ export const StartJourneySection = memo(function StartJourneySection({
               </span>
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p className={cn("mt-6 text-base md:text-xl w-full max-w-[1000px] text-(--text-secondary) md:ltr:w-[50%]", isRtl ? "text-right" : "text-left")}>
+              <p className={cn("mt-4 text-base md:text-xl w-full max-w-[1000px] text-(--text-secondary) md:ltr:w-[50%]", isRtl ? "text-right" : "text-left")}>
                 {subtitle}
               </p>
             )}

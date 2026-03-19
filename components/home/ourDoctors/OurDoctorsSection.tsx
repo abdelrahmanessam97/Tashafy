@@ -57,18 +57,7 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
               </h2>
               <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
             </div>
-            <div className={cn("flex justify-start items-center gap-6 shrink-0", isRtl && "flex-row-reverse")}>
-              <button
-                type="button"
-                aria-label={isRtl ? "Next" : "Previous"}
-                className={cn(
-                  navPrevClass,
-                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
-                )}
-              >
-                {!isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
-              </button>
-              <div className={cn(paginationClass, "flex justify-start items-center gap-2.5")} />
+            <div className={cn("flex justify-start items-center gap-6 shrink-0")}>
               <button
                 type="button"
                 aria-label={isRtl ? "Previous" : "Next"}
@@ -77,7 +66,18 @@ export function OurDoctorsSection({ locale, title, subtitle, doctors }: OurDocto
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >
-                {!isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+                {isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+              </button>
+              <div className={cn(paginationClass, "flex justify-start items-center gap-2.5")} />
+              <button
+                type="button"
+                aria-label={isRtl ? "Next" : "Previous"}
+                className={cn(
+                  navPrevClass,
+                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
+                )}
+              >
+                {isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
               </button>
             </div>
           </div>

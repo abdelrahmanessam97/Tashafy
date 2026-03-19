@@ -31,7 +31,7 @@ export const OurStory = memo(function OurStory({ locale, title, subtitle, stats 
                 alt="Our Story"
                 width={86}
                 height={60}
-                className={cn("absolute bottom-10 sm:bottom-5 mb-3 w-14 h-auto md:w-20 transform-3d", isRtl ? "-right-12" : "-left-12 transform-[rotateY(180deg)]")}
+                className={cn("absolute bottom-10 sm:bottom-5 md:bottom-20 mb-3 w-14 h-auto md:w-20 transform-3d", isRtl ? "-right-12 " : "-left-12 transform-[rotateY(180deg)]")}
                 loading="lazy"
                 decoding="async"
                 aria-hidden

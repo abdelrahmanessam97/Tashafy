@@ -44,7 +44,7 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
           <div className={cn("w-full flex flex-col lg:flex-row justify-end items-center gap-4")}>
             <div className={cn("flex-1 flex flex-col gap-4 ")}>
               <div className={cn("flex items-start gap-4")}>
-                <div className="px-2 py-1 bg-rose-100 rounded-lg inline-flex items-center gap-1">
+                <div className="px-2 py-1 bg-(--text-rose)/10 rounded-lg inline-flex items-center gap-1">
                   <span className="text-xl font-medium text-(--text-rose) leading-8">{highlightTag}</span>
                 </div>
                 <Sparkles className="size-7 shrink-0 text-(--text-rose)" aria-hidden />

@@ -64,9 +64,9 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
             <div className={cn("flex justify-start items-center gap-6 shrink-0")}>
               <button
                 type="button"
-                aria-label={isRtl ? "Next" : "Previous"}
+                aria-label={isRtl ? "Previous" : "Next"}
                 className={cn(
-                  navPrevClass,
+                  navNextClass,
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >
@@ -75,9 +75,9 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
               <div className={cn(paginationClass, "flex justify-start items-center gap-2.5")} />
               <button
                 type="button"
-                aria-label={isRtl ? "Previous" : "Next"}
+                aria-label={isRtl ? "Next" : "Previous"}
                 className={cn(
-                  navNextClass,
+                  navPrevClass,
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >

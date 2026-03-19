@@ -41,11 +41,14 @@ export function MedicalCenterSection({ locale, title, subtitle, filterPlaceholde
                 />
               </span>
             </h2>
-            <p className="text-lg font-normal leading-8 text-(--text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
+            <p className="mt-4 text-lg font-normal leading-8 text-(--text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
           </div>
 
-          <Select dir={isRtl ? "rtl" : "ltr"} defaultValue="all" aria-label={filterPlaceholder} aria-labelledby={filterPlaceholder}>
-            <SelectTrigger className="w-full max-w-48 border border-[#E0E0E0] rounded-lg p-2 shadow-xs py-5 bg-white text-base cursor-pointer">
+          <Select dir={isRtl ? "rtl" : "ltr"} defaultValue="all">
+            <SelectTrigger
+              aria-label={filterPlaceholder}
+              className="w-full max-w-48 border border-[#E0E0E0] rounded-lg p-2 shadow-xs py-5 bg-white text-base cursor-pointer"
+            >
               <SelectValue placeholder={filterPlaceholder} className="text-black" />
             </SelectTrigger>
             <SelectContent className="bg-white text-(--text-secondary) border border-[#E0E0E0] shadow-xs py-2">

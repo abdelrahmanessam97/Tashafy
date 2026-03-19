@@ -30,7 +30,7 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
         <div className="">
           <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
-              {title} 
+              {title}
               <Image
                 className="ms-auto"
                 src="/title-highlight.svg"
@@ -45,7 +45,7 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
               <p
-                className={cn("mt-8 text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}
+                className={cn("mt-4 text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}
               >
                 {subtitle}
               </p>

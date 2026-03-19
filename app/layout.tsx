@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-import { notoNaskhArabicFont } from "@/lib/fonts/fonts";
+import { mahoorFont } from "@/lib/fonts/fonts";
 
 export const metadata: Metadata = {
   title: "Tashafy",
@@ -20,7 +20,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir}>
-      <body className={`${notoNaskhArabicFont.className} antialiased`} suppressHydrationWarning cz-shortcut-listen="true">
+      <body className={`${mahoorFont.className} antialiased`} suppressHydrationWarning cz-shortcut-listen="true">
         <main className="">{children}</main>
         <Toaster position={dir === "rtl" ? "top-left" : "top-right"} richColors closeButton />
       </body>

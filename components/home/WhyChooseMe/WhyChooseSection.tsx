@@ -42,7 +42,7 @@ export function WhyChooseSection({
           {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
           <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start space-y-10")}>
             <div className={cn("relative min-w-0")}>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand)">
+              <h2 className="text-2xl md:text-4xl lg:text-[45px]  font-bold text-(--text-brand)">
                 {title}
                 <span className="inline-block">
                   <Image
@@ -60,7 +60,7 @@ export function WhyChooseSection({
               <p className="text-lg font-normal text-(--text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
             </div>
 
-            <div className={cn("flex flex-wrap gap-6 sm:gap-8 md:gap-10 lg:gap-12")}>
+            <div className={cn("flex flex-wrap gap-6")}>
               {stats.map((stat, index) => (
                 <div key={`${stat.value}-${index}`} className={cn("flex flex-col items-start")}>
                   <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)">{stat.value}</span>
@@ -72,13 +72,13 @@ export function WhyChooseSection({
             <div className={cn("flex flex-wrap gap-3 sm:gap-4")}>
               <Button
                 asChild
-                className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl"
+                className="w-fit h-12 bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium  rounded-xl"
               >
                 <Link href={ctaPrimaryHref}>{ctaPrimary}</Link>
               </Button>
               <Button
                 asChild
-                className="text-base sm:text-lg md:text-xl border border-[#D1D5DE] bg-white hover:bg-gray-100 text-[#1f242e] py-4 px-6 sm:py-5 sm:px-7 md:py-6 md:px-8 rounded-xl font-medium"
+                className="w-fit h-12 text-base sm:text-lg md:text-xl border border-[#D1D5DE] bg-white hover:bg-gray-100 text-[#1f242e] rounded-xl font-medium"
               >
                 <Link href={ctaSecondaryHref}>{ctaSecondary}</Link>
               </Button>
@@ -86,8 +86,8 @@ export function WhyChooseSection({
           </div>
 
           {/* Features card — order follows dir (right in RTL, left in LTR) */}
-          <Card className="order-2 lg:order-1 rounded-lg border-0 bg-[#F9FAFC] shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden h-fit">
-            <CardContent className="p-0 flex flex-col">
+          <Card className="order-2 lg:order-1 rounded-lg border-0 p-6  bg-[#F9FAFC] shadow-[0_4px_24px_rgba(0,0,0,0.06)] overflow-hidden h-fit">
+            <CardContent className="p-0 flex flex-col space-y-4">
               {features.map((feature, index) => (
                 <FeatureCard key={`${feature.title}-${index}`} feature={feature} isRtl={isRtl} />
               ))}

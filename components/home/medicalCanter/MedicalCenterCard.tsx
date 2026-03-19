@@ -19,16 +19,16 @@ export const MedicalCenterCard = memo(function MedicalCenterCard({ center, isRtl
         "inline-flex flex-col items-stretch",
       )}
     >
-      <div className="relative h-64 w-full overflow-hidden">
-        <Image src={center.image} alt={center.centerName} className="absolute inset-0 h-full w-full object-cover" width={384} height={256} loading="lazy" unoptimized />
+      <div className="relative h-[200px] w-full overflow-hidden">
+        <Image src={center.image} alt={center.centerName} className="absolute inset-0 h-full w-full object-cover" width={384} height={300} loading="lazy" unoptimized />
         <div className="absolute inset-x-0 bottom-0 h-5 bg-linear-to-t from-[#433ca640] to-[#36308500]" />
         <div className={cn("absolute top-3 z-10 flex h-7 items-center justify-center rounded-full bg-(--text-rose) px-3", !isRtl ? "right-3" : "left-3")}>
           <span className="text-sm font-medium leading-5 text-pink-50">{center.badgeLabel}</span>
         </div>
       </div>
 
-      <div className="flex  flex-col gap-4 p-3">
-        <div className="flex flex-col gap-2">
+      <div className="flex  flex-col gap-4 p-3 h-[200px]">
+        <div className="flex flex-col gap-2 h-[170px]">
           <div className={cn("flex items-center justify-between gap-2")}>
             <div className={cn("flex min-w-0 flex-1 flex-col gap-1")}>
               <div className={cn("flex w-full max-w-[288px] items-center gap-2")}>
