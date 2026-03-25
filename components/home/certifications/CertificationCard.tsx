@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import type { CertificationItem } from "@/types/certifications";
+import type { CertificationItem } from "@/types/home";
 import Image from "next/image";
 
 type CertificationCardProps = {
@@ -13,8 +13,8 @@ export function CertificationCard({ certification }: CertificationCardProps) {
         <div className="relative w-full max-w-[100px] h-12 flex items-center justify-center shrink-0">
           <Image src={certification.logo} alt="" width={100} height={48} className="w-full h-auto max-h-12 object-contain object-center" sizes="100px" aria-hidden />
         </div>
-        <h3 className="text-base md:text-lg font-bold text-(--text-brand)">{certification.name}</h3>
-        <p className="text-sm text-muted-foreground leading-snug">{certification.description}</p>
+        <h3 className="text-base md:text-lg font-bold text-(--color-text-brand)">{certification.name}</h3>
+        <p className="text-sm text-muted-foreground ">{certification.description}</p>
       </CardContent>
     </Card>
   );

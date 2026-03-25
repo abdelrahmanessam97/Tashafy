@@ -1,7 +1,7 @@
-import type { FeatureItem } from "@/types/features";
 import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
 import { FeatureCard } from "./FeatureCard";
+import type { FeatureItem } from "@/types/home";
 
 type FeaturesBannerProps = {
   locale: string;

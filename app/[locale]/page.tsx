@@ -4,41 +4,45 @@ import MainSection from "@/components/home/MainSection";
 import { StickyNavbar } from "@/components/shared/navbar/StickyNavbar";
 import { getTranslations } from "@/lib/localization/i18n-server";
 import { getNavAndFooterLabels } from "@/data/global";
-import { getOurServices } from "@/data/ourServices";
-import { getCertifications } from "@/data/certifications";
-import { getFeatures } from "@/data/features";
-import { getOurPartners } from "@/data/ourPartners";
-import { getFaqItems } from "@/data/faq";
-import { getOurStoryStats } from "@/data/ourStory";
-import { getWhyChooseFeatures, getWhyChooseStats } from "@/data/whyChoose";
-import { getArticles } from "@/data/articles";
-import { getPrograms } from "@/data/programs";
-import { getStartJourneySteps } from "@/data/recoveryJourney";
-import { getTestimonials } from "@/data/testimonials";
-import { getDestinations } from "@/data/destinations";
-import { getConsultationsDoctors } from "@/data/consultationsDoctors";
-import { getMedicalCenters } from "@/data/medicalCenters";
-import { getOurDoctors } from "@/data/ourDoctors";
-import { getSpecialties } from "@/data/specialties";
+import {
+  getArticles,
+  getCertifications,
+  getConsultationsDoctors,
+  getDestinations,
+  getFaqItems,
+  getFeatures,
+  getMedicalCenters,
+  getOurDoctors,
+  getOurPartners,
+  getOurServices,
+  getOurStoryStats,
+  getPrograms,
+  getSpecialties,
+  getStartJourneySteps,
+  getTestimonials,
+  getWhyChooseFeatures,
+  getWhyChooseStats,
+} from "@/data/home";
+import { JourneySection } from "@/components/shared/journey/JourneySection";
 
 const ServiceSection = dynamic(() => import("@/components/home/services/ServiceSection").then((m) => m.ServiceSection), { ssr: true });
 const StartJourneySection = dynamic(() => import("@/components/home/startJourney/StartJourneySection").then((m) => m.StartJourneySection), { ssr: true });
 const ProgramsSection = dynamic(() => import("@/components/home/programs/ProgramsSection").then((m) => m.ProgramsSection), { ssr: true });
 const LatestArticlesSection = dynamic(() => import("@/components/home/artical/LatestArticlesSection").then((m) => m.LatestArticlesSection), { ssr: true });
 const WhyChooseSection = dynamic(() => import("@/components/home/WhyChooseMe/WhyChooseSection").then((m) => m.WhyChooseSection), { ssr: true });
-const OurPartners = dynamic(() => import("@/components/home/partners/Partners").then((m) => m.Partners), { ssr: true });
+const OurPartners = dynamic(() => import("@/components/shared/partners/Partners").then((m) => m.Partners), { ssr: true });
 const FeaturesBanner = dynamic(() => import("@/components/home/features/FeaturesBanner").then((m) => m.FeaturesBanner), { ssr: true });
 const Certificationssection = dynamic(() => import("@/components/home/certifications/Certificationssection").then((m) => m.Certificationssection), { ssr: true });
-const FaqSection = dynamic(() => import("@/components/home/FaqSection").then((m) => m.FaqSection), { ssr: true });
-const OurStory = dynamic(() => import("@/components/home/OurStory").then((m) => m.OurStory), { ssr: true });
-const TestmoialsSection = dynamic(() => import("@/components/home/testmonials/TestmoialsSection").then((m) => m.TestmoialsSection), { ssr: true });
+const FaqSection = dynamic(() => import("@/components/shared/FaqSection").then((m) => m.FaqSection), { ssr: true });
+const OurStory = dynamic(() => import("@/components/shared/OurStory").then((m) => m.OurStory), { ssr: true });
+const TestmoialsSection = dynamic(() => import("@/components/shared/testmonials/TestmoialsSection").then((m) => m.TestmoialsSection), { ssr: true });
 const DentistSection = dynamic(() => import("@/components/home/dentist/dentistSection").then((m) => m.DentistSection), { ssr: true });
 const ConsultationsDoctorSection = dynamic(() => import("@/components/home/consultations/ConsultationsDoctorSection").then((m) => m.ConsultationsDoctorSection), {
   ssr: true,
 });
 const SpecialtiesSection = dynamic(() => import("@/components/home/specialties/SpecialtiesSection").then((m) => m.DoctorsSection), { ssr: true });
-const OurDoctorsSection = dynamic(() => import("@/components/home/ourDoctors/OurDoctorsSection").then((m) => m.OurDoctorsSection), { ssr: true });
-const MedicalCenterSection = dynamic(() => import("@/components/home/medicalCanter/MedicalCenterSection").then((m) => m.MedicalCenterSection), { ssr: true });
+const OurDoctorsSection = dynamic(() => import("@/components/shared/ourDoctors/OurDoctorsSection").then((m) => m.OurDoctorsSection), { ssr: true });
+const MedicalCenterSection = dynamic(() => import("@/components/shared/medicalCanter/MedicalCenterSection").then((m) => m.MedicalCenterSection), { ssr: true });
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -176,6 +180,18 @@ export default async function HomePage({ params }: Props) {
       />
 
       <FaqSection locale={locale} title={t("faq.title")} intro={t("faq.intro")} items={faqItems} />
+
+      <JourneySection
+        locale={locale}
+        title={t("recoveryJourney.cta.title")}
+        subtitle={t("recoveryJourney.cta.subtitle")}
+        primaryCardTitle={t("whyChoose.features.accreditedCenters.title")}
+        primaryCardSubtitle={t("whyChoose.features.accreditedCenters.subtitle")}
+        healthyLifeLabel={t("journey.healthyLife")}
+        transparentPricesLabel={t("whyChoose.features.transparentPrices.title")}
+        buttonLabel={t("recoveryJourney.cta.button")}
+        buttonHref="https://wa.me/1234567890"
+      />
     </main>
   );
 }

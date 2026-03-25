@@ -19,11 +19,12 @@ export type NavbarProps = {
   searchPlaceholder?: string;
   loadingLabel?: string;
   className?: string;
-  /** "dark" = light text (hero), "light" = dark text (sticky on white) */
   variant?: "dark" | "light";
+  logo_ar?: string;
+  logo_en?: string;
 };
 
-const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loadingLabel, className, variant = "dark" }: NavbarProps) {
+const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loadingLabel, className, variant = "dark", logo_ar, logo_en }: NavbarProps) {
   const pathname = usePathname();
   const localePrefix = `/${locale}`;
   const isRtl = locale === "ar";
@@ -62,8 +63,8 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
             href={href}
             className={cn(
               "relative px-3 py-2 text-sm font-medium transition-colors",
-              isLight ? "text-(--text-primary) hover:text-(--text-primary)/90" : "text-white hover:text-white/90",
-              active && (isLight ? "text-(--text-brand)" : "text-white"),
+              isLight ? "text-(--color-text-primary) hover:text-(--color-text-primary)/90" : "text-white hover:text-white/90",
+              active && (isLight ? "text-(--color-text-primary)" : "text-white"),
             )}
           >
             {labels[key]}
@@ -79,8 +80,15 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
       <header className={cn("w-full mx-auto", className)} dir={isRtl ? "rtl" : "ltr"}>
         <SectionContainer className="flex h-14 items-center justify-between gap-4 min-w-0">
           <div className="flex flex-1 items-center justify-between gap-4 min-w-0 md:justify-start md:gap-8">
-            <Link href={localePrefix || "/"} className={cn("flex shrink-0 flex-col gap-0 leading-tight", isRtl ? "items-end" : "items-start")} aria-label="Tashafy Home">
-              <Image src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} width={100} height={100} className="w-25 h-25" alt="Tashafy Logo" loading="eager" />
+            <Link href={localePrefix || "/"} className={cn("flex shrink-0 flex-col gap-0", isRtl ? "items-end" : "items-start")} aria-label="Tashafy Home">
+              <Image
+                src={locale === "ar" ? logo_ar || "/logo_white_ar.svg" : logo_en || "/logo_white_en.svg"}
+                width={100}
+                height={100}
+                className="w-25 h-25"
+                alt="Tashafy Logo"
+                loading="eager"
+              />
             </Link>
             <div className="flex items-center gap-2 ms-auto xl:hidden">
               <span className="flex shrink-0">{ctaButton}</span>
@@ -88,7 +96,7 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
                 type="button"
                 className={cn(
                   "flex size-9 shrink-0 items-center justify-center rounded-md transition-colors cursor-pointer",
-                  isLight ? "text-(--text-secondary) hover:bg-black/5 hover:text-(--text-primary)" : "text-white/80 hover:bg-white/10 hover:text-white",
+                  isLight ? "text-(--color-text-secondary) hover:bg-black/5 hover:text-(--color-text-primary)" : "text-white/80 hover:bg-white/10 hover:text-white",
                 )}
                 aria-label="Open menu"
                 aria-expanded={mobileMenuOpen}
@@ -105,7 +113,7 @@ const Navbar = memo(function Navbar({ locale, labels, searchPlaceholder, loading
                 type="button"
                 className={cn(
                   "ml-auto hidden xl:flex size-9 items-center justify-center rounded-md transition-colors",
-                  isLight ? "text-(--text-secondary) hover:bg-black/5 hover:text-(--text-primary)" : "text-white/80 hover:bg-white/10 hover:text-white",
+                  isLight ? "text-(--color-text-secondary) hover:bg-black/5 hover:text-(--color-text-primary)" : "text-white/80 hover:bg-white/10 hover:text-white",
                 )}
                 aria-label="Search"
               >

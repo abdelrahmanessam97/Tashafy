@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { ServiceItem } from "@/types/ourServices";
+import type { ServiceItem } from "@/types/home";
 import Image from "next/image";
 import { memo } from "react";
 import { ServiceCard } from "./ServiceCard";
@@ -28,8 +28,8 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
       />
       <SectionContainer className="relative">
         <div className="">
-          <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
+          <div className={cn("section-heading-stack mb-12 md:mb-16", isRtl ? "text-right" : "text-left")}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--color-text-brand) w-fit">
               {title}
               <Image
                 className="ms-auto"
@@ -44,11 +44,7 @@ export const ServiceSection = memo(function OurService({ locale, title, subtitle
               />
             </h2>
             {subtitle != null && subtitle.trim() !== "" && (
-              <p
-                className={cn("mt-4 text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}
-              >
-                {subtitle}
-              </p>
+              <p className={cn("text-base md:text-xl w-full max-w-[1000px] font-normal text-(--color-text-secondary)", isRtl ? "text-right" : "text-left")}>{subtitle}</p>
             )}
           </div>
 

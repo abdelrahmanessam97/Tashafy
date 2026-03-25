@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { consultationsDoctorItem } from "@/types/consultationsDoctor";
 import { Sparkles } from "lucide-react";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { ConsultationsDoctorCard } from "./ConsultationsDoctorCard";
+import type { consultationsDoctorItem } from "@/types/global";
 
 export type ConsultationsDoctorSectionProps = {
   locale: string;
@@ -44,18 +44,15 @@ export function ConsultationsDoctorSection({ locale, title, subtitle, highlightT
           <div className={cn("w-full flex flex-col lg:flex-row justify-end items-center gap-4")}>
             <div className={cn("flex-1 flex flex-col gap-4 ")}>
               <div className={cn("flex items-start gap-4")}>
-                <div className="px-2 py-1 bg-(--text-rose)/10 rounded-lg inline-flex items-center gap-1">
-                  <span className="text-xl font-medium text-(--text-rose) leading-8">{highlightTag}</span>
+                <div className="px-2 py-1 bg-(--color-accent-rose)/10 rounded-lg inline-flex items-center gap-1">
+                  <span className="text-xl font-medium text-(--color-accent-rose)">{highlightTag}</span>
                 </div>
-                <Sparkles className="size-7 shrink-0 text-(--text-rose)" aria-hidden />
+                <Sparkles className="size-7 shrink-0 text-(--color-accent-rose)" aria-hidden />
               </div>
-              <h2 
-                className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) leading-tight max-w-[1056px]
-              "
-              >
-                {title}
-              </h2>
-              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
+              <div className="section-heading-stack">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--color-text-brand) max-w-[1056px]">{title}</h2>
+                <p className="text-lg md:text-xl font-normal text-(--color-text-secondary) w-full max-w-[1000px]">{subtitle}</p>
+              </div>
             </div>
 
             <Button variant="default" size="lg" className="shrink-0 w-48 h-11 rounded-lg px-5 text-base font-medium text-white" asChild>

@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
-import type { WhyChooseFeature, WhyChooseStat } from "@/types/whyChoose";
+import type { WhyChooseFeature, WhyChooseStat } from "@/types/home";
 import Link from "next/link";
 import Image from "next/image";
 import { FeatureCard } from "./FeatureCard";
@@ -41,8 +41,8 @@ export function WhyChooseSection({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 xl:gap-14 items-stretch">
           {/* CTA block — alignment follows dir (start = right in RTL, end = right in LTR) */}
           <div className={cn("order-1 w-full p-4 sm:p-5 md:p-6 flex flex-col justify-start space-y-10")}>
-            <div className={cn("relative min-w-0")}>
-              <h2 className="text-2xl md:text-4xl lg:text-[45px]  font-bold text-(--text-brand)">
+            <div className={cn("relative min-w-0 section-heading-stack")}>
+              <h2 className="text-2xl md:text-4xl lg:text-[41px] font-bold text-(--color-text-brand)">
                 {title}
                 <span className="inline-block">
                   <Image
@@ -57,28 +57,32 @@ export function WhyChooseSection({
                   />
                 </span>
               </h2>
-              <p className="text-lg font-normal text-(--text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
+              <p className="text-lg font-normal text-(--color-text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
             </div>
 
             <div className={cn("flex flex-wrap gap-6")}>
               {stats.map((stat, index) => (
                 <div key={`${stat.value}-${index}`} className={cn("flex flex-col items-start")}>
-                  <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--text-brand)">{stat.value}</span>
-                  <span className="text-xs sm:text-sm md:text-base lg:text-xl text-(--text-secondary) mt-1 max-w-[200px] sm:max-w-[250px] text-left">{stat.label}</span>
+                  <span className="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-(--color-text-brand)">{stat.value}</span>
+                  <span
+                    className={cn(
+                      "text-xs sm:text-sm md:text-base lg:text-xl text-(--color-text-secondary) mt-1 max-w-[200px] sm:max-w-[250px]",
+                      isRtl ? "text-right" : "text-left",
+                    )}
+                  >
+                    {stat.label}
+                  </span>
                 </div>
               ))}
             </div>
 
             <div className={cn("flex flex-wrap gap-3 sm:gap-4")}>
-              <Button
-                asChild
-                className="w-fit h-12 bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium  rounded-xl"
-              >
+              <Button asChild className="w-fit h-12 bg-primary hover:bg-primary/90 text-white text-base sm:text-lg md:text-xl font-medium  rounded-xl">
                 <Link href={ctaPrimaryHref}>{ctaPrimary}</Link>
               </Button>
               <Button
                 asChild
-                className="w-fit h-12 text-base sm:text-lg md:text-xl border border-[#D1D5DE] bg-white hover:bg-gray-100 text-[#1f242e] rounded-xl font-medium"
+                className="w-fit h-12 text-base sm:text-lg md:text-xl border border-(--color-border-input) bg-white hover:bg-gray-100 text-(--color-text-primary) rounded-xl font-medium"
               >
                 <Link href={ctaSecondaryHref}>{ctaSecondary}</Link>
               </Button>

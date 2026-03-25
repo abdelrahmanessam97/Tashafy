@@ -47,8 +47,7 @@ export function MobileMenuDrawer({ open, onOpenChange, locale, labels, searchPla
       <SheetContent
         side={isRtl ? "right" : "left"}
         showCloseButton={false}
-        // className="flex flex-col border-0 bg-linear-to-b from-[#1A1D21] to-[#16181c] p-0 w-[85vw] max-w-sm sm:max-w-sm overflow-hidden"
-        className="flex flex-col border-0 bg-[rgba(67,60,166,0.12)] border-t-0 border-r-2 border-b-2 border-l-2 border-solid border-[rgba(255,255,255,0.08)] backdrop-blur-3xl p-0 w-[85vw] max-w-sm sm:max-w-sm overflow-hidden"
+        className="flex flex-col border-0 bg-(--color-surface-overlay-menu) border-t-0 border-r-2 border-b-2 border-l-2 border-solid border-(--color-border-overlay-menu) backdrop-blur-3xl p-0 w-[85vw] max-w-sm sm:max-w-sm overflow-hidden"
       >
         <SheetHeader
           className={cn(
@@ -68,7 +67,7 @@ export function MobileMenuDrawer({ open, onOpenChange, locale, labels, searchPla
             <span className="min-w-0">{ctaButton}</span>
           </div>
           <SheetTitle className="sr-only">Menu</SheetTitle>
-          <Link href={localePrefix || "/"} className="flex shrink-0 flex-col gap-0 leading-tight" onClick={() => onOpenChange(false)}>
+          <Link href={localePrefix || "/"} className="flex shrink-0 flex-col gap-0" onClick={() => onOpenChange(false)}>
             <Image className="w-25 h-25" src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} alt="Tashafy Logo" width={100} height={100} loading="eager" />
           </Link>
         </SheetHeader>

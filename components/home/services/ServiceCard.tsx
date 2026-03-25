@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { ServiceItem } from "@/types/ourServices";
+import type { ServiceItem } from "@/types/home";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +34,7 @@ export const ServiceCard = memo(function ServiceCard({ service, learnMoreLabel, 
         >
           <div className="flex flex-col gap-2 w-full">
             <h3 className="text-xl font-bold transition-colors duration-300">{service.title}</h3>
-            <p className="text-sm w-[68%] line-clamp-4 md:text-base leading-relaxed text-wrap text-muted-foreground transition-colors duration-300 group-hover:text-white/90">
+            <p className="text-sm w-[68%] line-clamp-4 md:text-base text-wrap text-(--color-text-muted) transition-colors duration-300 group-hover:text-white/90">
               {service.description}
             </p>
             <Link

@@ -28,5 +28,4 @@ export const mahoorFont = localFont({
       style: "normal",
     },
   ],
-  display: "swap",
 });

@@ -23,10 +23,7 @@ export function StickyNavbar({ locale, labels, searchPlaceholder, loadingLabel }
       const mainSection = document.getElementById(MAIN_SECTION_ID);
       if (!mainSection) return false;
 
-      const observer = new IntersectionObserver(
-        ([entry]) => setVisible(!entry.isIntersecting),
-        { threshold: 0, rootMargin: "0px" },
-      );
+      const observer = new IntersectionObserver(([entry]) => setVisible(!entry.isIntersecting), { threshold: 0, rootMargin: "0px" });
       observer.observe(mainSection);
       cleanup = () => observer.disconnect();
       return true;
@@ -55,6 +52,8 @@ export function StickyNavbar({ locale, labels, searchPlaceholder, loadingLabel }
           className="navbar"
           locale={locale}
           labels={labels}
+          logo_ar={"/logo_ar.svg"}
+          logo_en={"/logo_en.svg"}
           searchPlaceholder={searchPlaceholder}
           loadingLabel={loadingLabel}
         />

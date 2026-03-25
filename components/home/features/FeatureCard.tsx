@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { FeatureItem } from "@/types/features";
+import type { FeatureItem } from "@/types/home";
 import Image from "next/image";
 
 type FeatureCardProps = {
@@ -24,9 +24,9 @@ export function FeatureCard({ feature, isRtl }: FeatureCardProps) {
           <Image src={feature.icon} alt="" width={80} height={80} className="w-full h-full object-contain" aria-hidden />
         </div>
         {/* Text: padding on the side opposite the icon; alignment follows dir (RTL/LTR) */}
-        <div className={cn("flex flex-col gap-1 min-w-0 text-start", isRtl ? "pr-10 sm:pr-12 md:pr-14" : "pl-10 sm:pl-12 md:pl-14")}>
-          <h3 className="text-xl lg:text-2xl font-bold text-(--text-brand)">{feature.title}</h3>
-          <p className="text-base md:text-lg text-(--text-secondary) leading-snug">{feature.subtitle}</p>
+        <div className={cn("section-heading-stack min-w-0 text-start", isRtl ? "pr-10 sm:pr-12 md:pr-14" : "pl-10 sm:pl-12 md:pl-14")}>
+          <h3 className="text-xl lg:text-2xl font-bold text-(--color-text-brand)">{feature.title}</h3>
+          <p className="text-base md:text-lg text-(--color-text-secondary) ">{feature.subtitle}</p>
         </div>
       </CardContent>
     </Card>

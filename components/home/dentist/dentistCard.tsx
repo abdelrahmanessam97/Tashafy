@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { DestinationItem } from "@/types/destinations";
+import type { DestinationItem } from "@/types/home";
 import Image from "next/image";
 import { memo } from "react";
 
@@ -17,12 +17,12 @@ export const DentistCard = memo(function DentistCard({ destination, centersLabel
       </div>
       <div className={cn("w-full p-5 rounded-[20px] flex flex-col gap-5 bg-muted/80", isRtl ? "items-end text-right" : "items-start text-left")}>
         <div className="flex flex-col gap-3 w-full">
-          <h3 className="text-2xl font-semibold text-(--text-brand) leading-7">{destination.city}</h3>
-          <p className="text-base font-normal text-(--text-secondary) leading-6">{destination.country}</p>
+          <h3 className="text-2xl font-semibold text-(--color-text-brand) ">{destination.city}</h3>
+          <p className="text-base font-normal text-(--color-text-secondary) ">{destination.country}</p>
         </div>
         <div className={cn("w-full h-6 inline-flex items-center gap-1.5", isRtl ? "justify-end flex-row-reverse" : "justify-start")}>
-          <span className="text-base font-medium text-(--text-primary-hover) leading-6">{centersLabel}</span>
-          <span className="text-base font-medium text-(--text-primary-hover) leading-6">{destination.centersCount}</span>
+          <span className="text-base font-medium text-(--color-text-accent) ">{centersLabel}</span>
+          <span className="text-base font-medium text-(--color-text-accent) ">{destination.centersCount}</span>
         </div>
       </div>
     </div>

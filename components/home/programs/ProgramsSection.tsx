@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { ProgramItem } from "@/types/programs";
+import type { ProgramItem } from "@/types/home";
 import Image from "next/image";
 import { memo } from "react";
 import { ProgramCard } from "./ProgramCard";
@@ -23,8 +23,8 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
     >
       <SectionContainer className="relative">
         <div className="flex flex-col gap-6">
-          <div className={cn("relative flex-1 min-w-0", isRtl ? "text-right" : "text-left")}>
-            <h2 className="text-2xl font-bold leading-tight text-(--text-brand) md:text-4xl lg:text-5xl">
+          <div className={cn("section-heading-stack relative flex-1 min-w-0", isRtl ? "text-right" : "text-left")}>
+            <h2 className="text-2xl font-bold  text-(--color-text-brand) md:text-4xl lg:text-5xl">
               {title}
               <span className="inline-block">
                 <Image
@@ -39,7 +39,7 @@ export const ProgramsSection = memo(function ProgramsSection({ locale, title, su
                 />
               </span>
             </h2>
-            <p className="text-lg font-normal leading-8 text-(--text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
+            <p className="text-lg font-normal text-(--color-text-secondary) md:text-xl w-full max-w-[1000px]">{subtitle}</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">

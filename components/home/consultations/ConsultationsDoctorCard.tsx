@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { consultationsDoctorItem } from "@/types/consultationsDoctor";
+import type { consultationsDoctorItem } from "@/types/global";
 import { Star } from "lucide-react";
 import Image from "next/image";
 import { memo } from "react";
@@ -24,8 +24,8 @@ export const ConsultationsDoctorCard = memo(function ConsultationsDoctorCard({ d
           unoptimized
         />
         {/* Experience badge - start corner (left in LTR, right in RTL) */}
-        <div className={cn("absolute top-3 h-6 px-2 rounded-full bg-(--text-rose) inline-flex items-center justify-center z-10", isRtl ? "right-3" : "left-3")}>
-          <span className="text-xs font-normal text-white leading-4">{doctor.experience}</span>
+        <div className={cn("absolute top-3 h-6 px-2 rounded-full bg-(--color-accent-rose) inline-flex items-center justify-center z-10", isRtl ? "right-3" : "left-3")}>
+          <span className="text-xs font-normal text-white">{doctor.experience}</span>
         </div>
         {/* Bottom gradient overlay */}
         <div
@@ -33,8 +33,8 @@ export const ConsultationsDoctorCard = memo(function ConsultationsDoctorCard({ d
           style={{ backdropFilter: "blur(8px)", background: "linear-gradient(360deg, #363085 0%, rgba(54, 48, 133, 0) 100%)" }}
         >
           <div className="flex flex-col gap-2 w-full min-h-[130px]">
-            <h3 className="text-2xl font-semibold text-white leading-7">{doctor.name}</h3>
-            <p className="text-base font-bold text-white/80 leading-6">{doctor.specialization}</p>
+            <h3 className="text-2xl font-semibold text-white ">{doctor.name}</h3>
+            <p className="text-base font-bold text-white/80 ">{doctor.specialization}</p>
             {doctor.recommendationText && (
               <div className={cn("flex flex-col gap-1")}>
                 <div className="flex items-center gap-0.5">
@@ -42,7 +42,7 @@ export const ConsultationsDoctorCard = memo(function ConsultationsDoctorCard({ d
                     <Star key={i} className="size-4 fill-amber-400 text-amber-400" aria-hidden />
                   ))}
                 </div>
-                <span className="text-xs font-normal text-amber-400/90 leading-4">{doctor.recommendationText}</span>
+                <span className="text-xs font-normal text-amber-400/90 ">{doctor.recommendationText}</span>
               </div>
             )}
           </div>

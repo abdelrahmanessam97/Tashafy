@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { SpecialtyItem } from "@/types/specialties";
+import type { SpecialtyItem } from "@/types/home";
 import Image from "next/image";
 import { memo } from "react";
 
@@ -17,8 +17,8 @@ export const DoctoresCard = memo(function DoctoresCard({ specialty }: DoctoresCa
           {specialty.icon && <Image src={specialty.icon} alt={specialty.title} className="h-full w-full object-contain" width={24} height={24} />}
         </div>
         <div className="flex flex-col gap-1 w-full">
-          <h3 className="text-xl font-medium text-(--text-brand) leading-8">{specialty.title}</h3>
-          <p className="text-base font-normal text-(--text-secondary) leading-6">{specialty.description}</p>
+          <h3 className="text-xl font-medium text-(--color-text-brand) ">{specialty.title}</h3>
+          <p className="text-base font-normal text-(--color-text-secondary) ">{specialty.description}</p>
         </div>
       </CardContent>
     </Card>

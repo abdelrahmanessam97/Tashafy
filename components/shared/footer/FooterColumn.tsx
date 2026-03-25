@@ -4,12 +4,15 @@ import Link from "next/link";
 export function FooterColumn({ title, links, locale, labels }: FooterColumnProps) {
   const prefix = `/${locale}`;
   return (
-    <div className="flex flex-col gap-4">
-      <h3 className="text-base font-semibold text-[#686E7D]">{title}</h3>
-      <ul className="flex flex-col gap-3">
+    <div className="flex w-full min-w-0 flex-col items-start gap-4 text-start">
+      <h3 className="w-full text-base font-semibold text-(--color-text-secondary)">{title}</h3>
+      <ul className="flex w-full flex-col items-start gap-3">
         {links.map(({ key, path }) => (
-          <li key={key}>
-            <Link href={`${prefix}${path}`} className="text-base text-[#4E5663] transition-colors hover:text-[#363085]">
+          <li key={key} className="w-full text-start">
+            <Link
+              href={`${prefix}${path}`}
+              className="inline-block text-base text-(--color-text-secondary) transition-colors hover:text-(--color-text-brand)"
+            >
               {labels[key]}
             </Link>
           </li>

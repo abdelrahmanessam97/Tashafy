@@ -3,7 +3,7 @@ export type NavLabels = {
   home: string;
   rehabilitation: string;
   wellness: string;
-  examinations: string;
+  tashafyPrograms: string;
   blog: string;
   aboutUs: string;
   contactUs: string;
@@ -20,7 +20,7 @@ export type FooterLabels = {
   aboutUs: string;
   legal: string;
   rehabilitation: string;
-  wellnessPrograms: string;
+  tashafyPrograms: string;
   medicalTravel: string;
   checkupPackages: string;
   ourDoctors: string;
@@ -47,4 +47,68 @@ export type FooterColumnProps = {
 export type FooterProps = {
   locale: string;
   labels: FooterLabels;
+};
+
+export type TestimonialItem = {
+  name: string;
+  role: string;
+  avatar: string;
+  avatarBgClass: string;
+  quote: string;
+  duration: string;
+  location: string;
+};
+
+export type PartnerItem = {
+  name: string;
+  logo: string;
+  href?: string;
+};
+
+export type FaqItem = {
+  question: string;
+  answer: string;
+};
+
+export type MedicalCenterItem = {
+  image: string;
+  /** Display badge (i18n). */
+  badgeLabel: string;
+  /**
+   * Stable id for `[id]` detail routes (e.g. rehabilitation/0, wellness/wellness.0).
+   * Aligns with the translation key used for this card’s badge/name block.
+   */
+  detailId: string;
+  priceFormatted: string;
+  centerName: string;
+  rating: string;
+  location: string;
+  serviceTags: string[];
+  learnAboutLabel: string;
+  /** Legacy query-style href without locale; prefer `detailId` + category `detailsSegment`. */
+  learnAboutHref: string;
+};
+
+export type MedicalCenterCategory = {
+  categoryName: string;
+  viewAllLabel: string;
+  viewAllHref: string;
+  learnAboutHref: string;
+  /** When set, “Learn about” links to `/${locale}/${detailsSegment}/${detailId}`. */
+  detailsSegment?: string;
+  centers: MedicalCenterItem[];
+};
+
+export type OurStoryStat = {
+  value: string;
+  label: string;
+};
+
+export type consultationsDoctorItem = {
+  name: string;
+  image: string;
+  experience: string;
+  specialization: string;
+  recommendationText?: string;
+  bookButtonLabel: string;
 };

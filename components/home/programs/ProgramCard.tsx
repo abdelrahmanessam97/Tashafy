@@ -1,11 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { ProgramItem } from "@/types/programs";
 import { BadgeCheck, SaudiRiyal, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { memo } from "react";
+import type { ProgramItem } from "@/types/home";
 
 type ProgramCardProps = {
   program: ProgramItem;
@@ -31,7 +31,7 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
           )}
         >
           <span className="flex size-5 shrink-0 items-center justify-center rounded-full" aria-hidden>
-            <Star className="size-3 fill-(--text-rose) text-(--text-rose)" />
+            <Star className="size-3 fill-(--color-accent-rose) text-(--color-accent-rose)" />
           </span>
           {bestSellerLabel}
         </span>
@@ -52,16 +52,16 @@ export const ProgramCard = memo(function ProgramCard({ program, bookLabel, bestS
       </div>
 
       <CardContent className={cn("flex flex-col flex-1 p-5 md:p-6 gap-3", isRtl ? "text-right" : "text-left")}>
-        <h3 className="text-lg md:text-xl font-bold text-(--text-rose)">{program.title}</h3>
-        <p className="text-2xl md:text-3xl font-bold text-(--text-brand) flex items-center gap-1">
+        <h3 className="text-lg md:text-xl font-bold text-(--color-accent-rose)">{program.title}</h3>
+        <p className="text-2xl md:text-3xl font-bold text-(--color-text-brand) flex items-center gap-1">
           {program.price}
-          <SaudiRiyal className="size-4 shrink-0 fill-(--text-brand) text-(--text-brand)" aria-hidden />
+          <SaudiRiyal className="size-4 shrink-0 fill-(--color-text-brand) text-(--color-text-brand)" aria-hidden />
         </p>
         <div className="space-y-0.5">
-          <p className="text-lg md:text-xl font-bold text-(--text-brand)">{program.duration}</p>
-          {program.summary != null && program.summary.trim() !== "" && <p className="text-base font-semibold text-(--text-secondary)">{program.summary}</p>}
+          <p className="text-lg md:text-xl font-bold text-(--color-text-brand)">{program.duration}</p>
+          {program.summary != null && program.summary.trim() !== "" && <p className="text-base font-semibold text-(--color-text-secondary)">{program.summary}</p>}
         </div>
-        <ul className="flex flex-col gap-2.5 text-base font-semibold text-(--text-secondary) leading-relaxed list-none items-start">
+        <ul className="flex flex-col gap-2.5 text-base font-semibold text-(--color-text-secondary) list-none items-start">
           {program.features.map((feature, i) => (
             <li key={i} className={cn("flex gap-2 text-pretty wrap-break-word")}>
               <BadgeCheck className="size-4 shrink-0 fill-primary text-white mt-0.5" aria-hidden />

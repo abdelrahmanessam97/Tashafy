@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { DestinationItem } from "@/types/destinations";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
@@ -11,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { DentistCard } from "./dentistCard";
+import type { DestinationItem } from "@/types/home";
 
 export type DentistSectionProps = {
   locale: string;
@@ -36,8 +36,8 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
       <SectionContainer className="relative">
         {/* Header: decorative icon + title block; RTL: group on right, LTR: group on left */}
         <div className={cn("flex items-center gap-4 mb-12 md:mb-16", isRtl ? "justify-end flex-row-reverse" : "justify-start")}>
-          <div className={cn("flex flex-col gap-0.5 w-full text-start")}>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-(--text-brand)">
+          <div className={cn("section-heading-stack w-full text-start")}>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold  text-(--color-text-brand)">
               {title}
               <span className="inline-block">
                 <Image
@@ -52,7 +52,7 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
                 />
               </span>
             </h2>
-            <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
+            <p className="text-lg md:text-xl font-normal text-(--color-text-secondary)  w-full max-w-[1000px]">{subtitle}</p>
           </div>
         </div>
 
@@ -67,7 +67,11 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
                 "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
               )}
             >
-              {isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+              {isRtl ? (
+                <ChevronRight className="h-5 w-5 text-(--color-text-brand)" aria-hidden />
+              ) : (
+                <ChevronLeft className="h-5 w-5 text-(--color-text-brand)" aria-hidden />
+              )}
             </button>
 
             <div className="flex-1 min-w-0 overflow-hidden relative">
@@ -92,7 +96,7 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
                   1024: { slidesPerView: 2 },
                   1280: { slidesPerView: 3 },
                 }}
-                className="!overflow-hidden"
+                className="overflow-hidden!"
               >
                 {destinations.map((destination, index) => (
                   <SwiperSlide key={`${destination.city}-${index}`}>
@@ -109,7 +113,11 @@ export function DentistSection({ locale, title, subtitle, centersLabel, destinat
                 "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
               )}
             >
-              {isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+              {isRtl ? (
+                <ChevronLeft className="h-5 w-5 text-(--color-text-brand)" aria-hidden />
+              ) : (
+                <ChevronRight className="h-5 w-5 text-(--color-text-brand)" aria-hidden />
+              )}
             </button>
           </div>
           <div className={cn(paginationClass, "inline-flex justify-center items-center gap-2.5")} />

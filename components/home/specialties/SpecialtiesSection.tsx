@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import type { SpecialtyItem } from "@/types/specialties";
+import type { SpecialtyItem } from "@/types/home";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -43,8 +43,8 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
         {/* Header: nav (prev, pagination, next) | title + subtitle */}
         <div className="flex flex-col gap-12">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8 w-full">
-            <div className={cn("flex flex-col gap-0.5 flex-1 min-w-0")}>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight text-(--text-brand)">
+            <div className={cn("section-heading-stack flex-1 min-w-0")}>
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--color-text-brand)">
                 {title}
                 <span className="inline-block">
                   <Image
@@ -59,7 +59,7 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
                   />
                 </span>
               </h2>
-              <p className="text-lg md:text-xl font-normal text-(--text-secondary) leading-8 w-full max-w-[1000px]">{subtitle}</p>
+              <p className="text-lg md:text-xl font-normal text-(--color-text-secondary)  w-full max-w-[1000px]">{subtitle}</p>
             </div>
             <div className={cn("flex justify-start items-center gap-6 shrink-0")}>
               <button
@@ -70,7 +70,7 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >
-                {isRtl ? <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+                {isRtl ? <ChevronRight className="h-5 w-5 text-(--color-text-brand)" aria-hidden /> : <ChevronLeft className="h-5 w-5 text-(--color-text-brand)" aria-hidden />}
               </button>
               <div className={cn(paginationClass, "flex justify-start items-center gap-2.5")} />
               <button
@@ -81,7 +81,7 @@ export function DoctorsSection({ locale, title, subtitle, specialties }: Doctors
                   "shrink-0 w-11 h-11 rounded-full flex items-center justify-center bg-white border border-primary/30 opacity-50 hover:opacity-100 transition-opacity cursor-pointer z-10",
                 )}
               >
-                {isRtl ? <ChevronLeft className="h-5 w-5 text-(--text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--text-brand)" aria-hidden />}
+                {isRtl ? <ChevronLeft className="h-5 w-5 text-(--color-text-brand)" aria-hidden /> : <ChevronRight className="h-5 w-5 text-(--color-text-brand)" aria-hidden />}
               </button>
             </div>
           </div>

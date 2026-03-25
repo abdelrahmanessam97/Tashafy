@@ -21,50 +21,44 @@ export function Footer({ locale, labels }: FooterProps) {
     >
       <SectionContainer>
         <div className="pt-16 pb-6">
-          <div className="grid gap-10 lg:grid-cols-[1fr_auto_auto_auto_auto] lg:gap-8">
+          {/* RTL: brand is first in DOM → appears on the right; link columns follow to the left */}
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.85fr)] lg:gap-12 xl:gap-16">
             {/* Brand column: logo + tagline */}
-            <div className="flex max-w-sm flex-col lg:max-w-xs">
-              <Link href={prefix || "/"} className="inline-flex flex-col leading-tight" aria-label="Tashafy Home">
+            <div className="flex max-w-lg flex-col items-start gap-4 text-start lg:max-w-xs">
+              <Link href={prefix || "/"} className="inline-flex flex-col items-start" aria-label="Tashafy Home">
                 <Image width={100} height={100} className="h-25 w-25" loading="eager" src={locale === "ar" ? "/logo_ar.svg" : "/logo_en.svg"} alt="Tashafy" />
               </Link>
-              <p className="text-base text-[#4E5663]">{labels.tagline}</p>
+              <p className="text-base leading-relaxed text-(--color-text-secondary)">{labels.tagline}</p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-              {/* Main links column */}
+            <div className="grid min-w-0 grid-cols-1 gap-8 md:grid-cols-3 md:items-start md:gap-x-10 xl:gap-x-12">
               <FooterColumn title={labels.mainTitle} links={FOOTER_MAIN_LINKS} locale={locale} labels={labels} />
 
-              {/* About column */}
               <FooterColumn title={labels.aboutUs} links={FOOTER_ABOUT_LINKS} locale={locale} labels={labels} />
 
-              {/* Legal column */}
-              <div className={cn("flex flex-col justify-between")}>
+              <div className="flex min-w-0 flex-col items-start gap-6 text-start">
                 <FooterColumn title={labels.legal} links={FOOTER_LEGAL_LINKS} locale={locale} labels={labels} />
-
-                {/* Contact: email only (social in bottom bar) */}
-                <div className="flex flex-col gap-4">
-                  {/* <h3 className="sr-only">{labels.contactUs}</h3> */}
-                  <a href={`mailto:${labels.email}`} className="text-base text-[#4E5663] transition-colors hover:text-[#363085]">
-                    {labels.email}
-                  </a>
-                </div>
+                <a href={`mailto:${labels.email}`} className="text-base text-(--color-text-secondary) transition-colors hover:text-(--color-text-brand)">
+                  {labels.email}
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Bottom bar: copyright + social */}
+          {/* Bottom bar: RTL → copyright (start) right, social (end) left */}
           <div className="mt-12 border-t border-[#E9EBF0]">
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-4">
-              <p className="text-base text-[#4E5663]">{labels.copyright}</p>
-              <div className="flex flex-wrap items-center gap-4 text-sm">
-                <Link href={`${prefix}/social/facebook`} className="text-base text-[#4E5663] transition-colors hover:text-[#363085]">
-                  {labels.facebook}
+            <div className="flex flex-col gap-4 pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-base text-(--color-text-secondary)">{labels.copyright}</p>
+              {/* LTR: keeps social order (Instagram → X → Facebook) on the physical left in RTL layouts */}
+              <div className="flex flex-wrap items-center gap-4 text-sm" dir="ltr">
+                <Link href={`${prefix}/social/instagram`} className="text-base text-(--color-text-secondary) transition-colors hover:text-(--color-text-brand)">
+                  {labels.instagram}
                 </Link>
-                <Link href={`${prefix}/social/x`} className="text-base text-[#4E5663] transition-colors hover:text-[#363085]">
+                <Link href={`${prefix}/social/x`} className="text-base text-(--color-text-secondary) transition-colors hover:text-(--color-text-brand)">
                   {labels.x}
                 </Link>
-                <Link href={`${prefix}/social/instagram`} className="text-base text-[#4E5663] transition-colors hover:text-[#363085]">
-                  {labels.instagram}
+                <Link href={`${prefix}/social/facebook`} className="text-base text-(--color-text-secondary) transition-colors hover:text-(--color-text-brand)">
+                  {labels.facebook}
                 </Link>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import { CertificationCard } from "@/components/home/certifications/CertificationCard";
 import { SectionContainer } from "@/components/shared/layout/SectionContainer";
 import { cn } from "@/lib/utils";
-import type { CertificationItem } from "@/types/certifications";
+import type { CertificationItem } from "@/types/home";
 import Image from "next/image";
 
 type CertificationsSectionProps = {
@@ -16,8 +16,8 @@ export function Certificationssection({ locale, title, subtitle, certifications 
   return (
     <section className="relative w-full overflow-hidden py-16 md:py-24" dir={isRtl ? "rtl" : "ltr"}>
       <SectionContainer className="relative">
-        <div className={cn("mb-12 md:mb-16 ", isRtl ? "text-right" : "text-left")}>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--text-brand) w-fit">
+        <div className={cn("section-heading-stack mb-12 md:mb-16", isRtl ? "text-right" : "text-left")}>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-(--color-text-brand) w-fit">
             {title}
             <Image
               className="md:ms-auto ms-0"
@@ -32,7 +32,7 @@ export function Certificationssection({ locale, title, subtitle, certifications 
             />
           </h2>
           {subtitle != null && subtitle.trim() !== "" && (
-            <p className={cn("mt-4 text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
+            <p className={cn("text-base md:text-xl w-full max-w-[1000px]", "text-muted-foreground dark:text-muted-foreground", isRtl ? "text-right" : "text-left")}>
               {subtitle}
             </p>
           )}
